@@ -97,7 +97,7 @@ function funcForm_add_event() {
         const final_point3_target = document.getElementById("final-point3-target").value;
         // const final_point3_arg = document.getElementById("final-point3-arg").value;
 
-        let url = "https://script.google.com/macros/s/AKfycbzdas7eTgQSHYV9Qae5gT0dquTrPzbtewoPmDaUu8TAZQuQkXwBuDSIkh576hdadre92w/exec?"+
+        let url = "https://beagleetech.ga/v1/essay?"+
         "ts="+encodeURIComponent(final_title_subject)+
         "&impact="+encodeURIComponent(final_title_impact)+
         "&to="+encodeURIComponent(final_title_object)+
@@ -117,7 +117,7 @@ function funcForm_add_event() {
         // "&="+encodeURIComponent()+ //final_point1_arg
         // "&="+encodeURIComponent()+ //final_point2_arg
         // "&="+encodeURIComponent()+ //final_point3_arg
-        "&callback=?";
+        // "&callback=?";
 
         preview_start_loading_gif.click();
 
