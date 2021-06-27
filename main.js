@@ -428,7 +428,7 @@ function change_colour(subject, verb, object, id){
 }
 
 function init(){
-    let u = "https://beagleetech.ga/cdn/init";
+    let u = "https://beagleetech.ga/essay_init";
 
     let xhr = new XMLHttpRequest();
         xhr.open("GET", u, true);
