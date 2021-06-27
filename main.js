@@ -138,6 +138,7 @@ function funcForm_add_event() {
                     document.getElementById("t_func_tab_three").click();
                     document.getElementById("t_func_tab_display_three").click();
                 } else {
+                    console.log(result);
                     alert("Somethings wrong, plesae refresh your browser.");
                     preview_start_loading_gif.click();
                 }
