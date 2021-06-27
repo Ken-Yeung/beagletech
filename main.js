@@ -127,7 +127,7 @@ function funcForm_add_event() {
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 // console.log(xhr.responseText);
-                let result = foo(xhr.responseText);
+                let result = xhr.responseText;
 
                 if(result != "error"){
                     let preview_rich = document.querySelectorAll("#preview-rich");
@@ -174,16 +174,16 @@ function funcForm_add_event() {
 }
 //End funcForm_add_event
 
-function foo(inf){
-    let result = "";
+// function foo(inf){
+//     let result = "";
 
-    if(inf.charAt(0) == "?"){
-        result = inf.slice(4, -3);
-    } else {
-        result = "error";
-    }
-    return result;
-}
+//     if(inf.charAt(0) == "?"){
+//         result = inf.slice(4, -3);
+//     } else {
+//         result = "error";
+//     }
+//     return result;
+// }
 
 function toggle_onchange(impact){
     let type1_preview_title = document.querySelectorAll("#type1-preview-title");
