@@ -436,7 +436,7 @@ function init(){
           if (xhr.readyState === 4) {
             if (xhr.status === 200) {
                 let result = xhr.responseText;
-                let cats = JSON.parse(result.slice(1,-1));
+                let cats = JSON.parse(result);
                 // console.log(cats[0]["cat1"]);
                 init_suggestion(cats);
             } else {
