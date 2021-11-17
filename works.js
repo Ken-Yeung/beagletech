@@ -12,7 +12,7 @@ class event_listen {
             this.form[i].addEventListener("submit", (e)=>{
                 e.preventDefault();
                 const btn_id = e.target.id;
-                if(btn_id.split("-")[0] == "sumbit"){
+                if(btn_id.split("-")[0] == "form"){
                     try{
                         document.getElementById(`main-tab-${btn_id.charAt(btn_id.length-1)}`).click();
                     } catch (error){
