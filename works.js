@@ -18,8 +18,8 @@ class event_listen {
 }
 
 (function(){
-    const listener = new event_listen();
-    listener.all_forms();
+    // const listener = new event_listen();
+    // listener.all_forms();
 
     console.log("Successfully imported and updated");
     document.getElementById("btn-start").addEventListener("click",(e)=>{
