@@ -18,6 +18,8 @@ class event_listen {
                     } catch (error){
                         console.log("No such page here.");
                     }
+                } else {
+                    console.log(btn_id.split("-")[0]);
                 }
 
             });
