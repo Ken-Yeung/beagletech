@@ -12,17 +12,14 @@ class event_listen {
             this.form[i].addEventListener("submit", (e)=>{
                 e.preventDefault();
                 const btn_id = e.target.id;
-                console.log(btn_id.split("-")[0]);
-                if(btn_id.split("-")[0] == "form"){
+                const btn_state = btn_id.split("-")[0];
+                if(btn_state == "form"){
                     try{
                         document.getElementById(`main-tab-${btn_id.charAt(btn_id.length-1)}`).click();
                     } catch (error){
                         console.log("No such page here.");
                     }
-                } else {
-                    console.log(btn_id.split("-")[0]);
                 }
-
             });
         }
     }
