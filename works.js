@@ -15,6 +15,8 @@ class event_listen {
                 const btn_state = btn_id.split("-")[0];
                 if(btn_state == "form"){
                     try{
+                        console.log("Found form:");
+                        console.log(btn_id.charAt(btn_id.length-1));
                         document.getElementById(`main-tab-${btn_id.charAt(btn_id.length-1)}`).click();
                     } catch (error){
                         console.log("No such page here.");
