@@ -83,6 +83,7 @@ class event_listen {
                         document.getElementById(`main-tab-${tab_id}`).click();
                     } catch (error){
                         console.log("No such page here.");
+                        console.log(`ID: ${btn_id}`);
                     }
                 }
             });
