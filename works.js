@@ -62,6 +62,7 @@ class class_worker{
 
 class event_listen {
     constructor(){
+        this.home = document.getElementById("home");
         this.form = document.querySelectorAll(".form");
 
         this.form_1_sumbit = document.getElementById("submit-step1"); //Start
@@ -90,12 +91,19 @@ class event_listen {
         }
     }
 
+    go_home(){
+        this.home.addEventListener("click", (e)=>{
+            document.getElementById("main-tab-home").click();
+        });
+    }
+
 }
 // <-- ###### class ###### -->
 
 (function(){
     const listener = new event_listen();
     listener.all_forms();
+    listener.go_home();
 
     // console.log("Successfully imported and updated");
     document.getElementById("btn-start").addEventListener("click",(e)=>{
