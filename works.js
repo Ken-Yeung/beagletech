@@ -112,4 +112,6 @@ class event_listen {
     listener.all_forms();
     listener.go_home();
     listener.init();
+
+    console.log("Hello World.")
 })();
