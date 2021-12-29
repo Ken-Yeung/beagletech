@@ -141,7 +141,7 @@ var tool_tips = (parent, content) => {
     parent.addEventListener("mouseout", ()=>{
         try {
             let child = document.getElementById("tool_tip");
-            let class_work = new class_worker("tool_tip", true);
+            let class_work = new class_worker("tool_tip", false);
             class_work.delay_add("opc-0", 366);
             class_work.delay_add("nomove", 366);
             setTimeout(()=>{
