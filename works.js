@@ -96,6 +96,7 @@ class event_listen {
         this.home.addEventListener("click", (e)=>{
             document.getElementById("main-tab-home").click();
         });
+        tool_tips(this.home, "Home Page");
     }
 
     init(){
@@ -107,11 +108,38 @@ class event_listen {
 }
 // <-- ###### class ###### -->
 
+// <-- ###### test func ###### -->
+// Test Add Child to a non-div
+var tool_tips = (parent, content) => {
+
+    // let parent = document.getElementById(e.target.id);
+
+    parent.addEventListener("mouseover", ()=>{
+        try {
+            let child = document.createElement("p");
+
+            child.textContent = content.toString();
+
+            parent.appendChild(child);
+        } catch (err) {
+            console.log("Unable to insert tool tips.");
+            console.log(`Error: ${err}`);
+        }
+        
+        return;
+    })
+
+    return;
+}
+// <-- ###### test func ###### -->
+
+
 (function(){
     const listener = new event_listen();
     listener.all_forms();
     listener.go_home();
     listener.init();
 
-    console.log("Hello World.")
+    // console.log("Hello World.");
+    tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
 })();
