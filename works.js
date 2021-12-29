@@ -121,7 +121,7 @@ var tool_tips = (parent, content) => {
                 child.textContent = content.toString();
                 child.id = "tool_tip";
                 child.className = "tool_tip nomove opc-0 noshow";
-                parent.appendChild(child);
+                parent.parent.appendChild(child);
 
                 let class_work = new class_worker("tool_tip", true);
                 class_work.remove("noshow");
@@ -145,7 +145,7 @@ var tool_tips = (parent, content) => {
             class_work.delay_add("opc-0", 366);
             class_work.delay_add("nomove", 366);
             setTimeout(()=>{
-                parent.removeChild(child);
+                parent.parent.removeChild(child);
             },699);
         } catch (err){
             console.log("Unable to clear tool tip.");
@@ -165,5 +165,5 @@ var tool_tips = (parent, content) => {
     listener.init();
 
     // console.log("Hello World.");
-    tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
+    // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
 })();
