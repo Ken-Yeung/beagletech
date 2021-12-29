@@ -123,7 +123,7 @@ var tool_tips = (parent, content) => {
                 child.className = "tool_tip nomove opc-0 noshow";
                 parent.parentNode.appendChild(child);
 
-                let class_work = new class_worker("tool_tip", true);
+                let class_work = new class_worker("tool_tip", false);
                 class_work.remove("noshow");
                 class_work.delay_remove("opc-0", 33);
                 class_work.delay_remove("nomove", 33);
