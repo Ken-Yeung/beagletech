@@ -165,5 +165,5 @@ var tool_tips = (parent, content) => {
     listener.init();
 
     // console.log("Hello World.");
-    tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
+    // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
 })();
