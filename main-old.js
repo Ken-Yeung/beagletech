@@ -24,6 +24,7 @@ function enable_scroll() {
     $(window).scrollTop(scrollPosition);
     return;
 }
+// scroll control
 
 // input area id
 const input_field = {
@@ -285,7 +286,7 @@ function op_clicked(id){
     showcase_close.addEventListener("click", (e)=>{
         enable_scroll();
         let popup_control = new class_worker("popup", false);
-        let childs = document.getElementById("popup").children
+        let childs = document.getElementById("popup").children;
 
         for(let i = 0; i < childs.length; i++){
             let child = childs[i];

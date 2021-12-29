@@ -1,3 +1,27 @@
+// scroll control
+let $body = $(document.body);
+let scrollPosition = 0;
+function disable_scroll() {
+    var oldWidth = $body.innerWidth();
+    scrollPosition = window.pageYOffset;
+    $body.css('overflow', 'hidden');
+    $body.css('position', 'fixed');
+    $body.css('top', `-${scrollPosition}px`);
+    $body.width(oldWidth);
+    return;
+}
+
+function enable_scroll() {
+    if ($body.css('overflow') != 'hidden') { scrollPosition = window.pageYOffset; }
+    $body.css('overflow', '');
+    $body.css('position', '');
+    $body.css('top', '');
+    $body.width('');
+    $(window).scrollTop(scrollPosition);
+    return;
+}
+// scroll control
+
 // <-- ###### class ###### -->
 class class_worker{
     constructor(id, debug){
@@ -65,12 +89,15 @@ class event_listen {
         this.home = document.getElementById("home");
         this.form = document.querySelectorAll(".form");
         this.start = document.getElementById("btn-start");
+        // this.popup = document.getElementById("popup");
+        this.close_popup = document.getElementById("popup-close");
 
         this.form_1_sumbit = document.getElementById("submit-step1"); //Start
         this.form_2_sumbit = document.getElementById("submit-step2"); //Arg 1
         this.form_3_sumbit = document.getElementById("submit-step3"); //Arg 2
         this.form_4_sumbit = document.getElementById("submit-step4"); //Arg 3
 
+        this.home_tutor = document.getElementById("main-home-tutorial");
     }
 
     all_forms(){
@@ -99,17 +126,44 @@ class event_listen {
         tool_tips(this.home, "Home Page");
     }
 
+    home_display_card(){
+        this.home_tutor.addEventListener("click", (e)=>{
+            let popup = new class_worker("popup", false);
+            
+            popup.remove("noshow");
+            popup.delay_remove("hide-btn", 33);
+            disable_scroll();
+        });
+        this.close_popup.addEventListener("click", (e)=>{
+            enable_scroll();
+            let popup_control = new class_worker("popup", false);
+            let childs = document.getElementById("popup").children;
+
+            for(let i = 0; i < childs.length; i++){
+                let child = childs[i];
+                if(child.id != "popup-close"){
+                    // console.log(`Clear Event: ${child.id}`);
+                    let child_class_worker = new class_worker(child.id, false);
+                    child_class_worker.add("hide-btn");
+                    child_class_worker.delay_add("noshow", 345);
+                }
+            }
+
+            popup_control.delay_add("hide-btn", 345);
+            popup_control.delay_add("noshow", 345+333);
+        });
+    }
+
     init(){
         this.start.addEventListener("click", (e)=>{
             document.getElementById("main-tab-1").click();
         });
+        this.home_display_card();
     }
 
 }
 // <-- ###### class ###### -->
-
-// <-- ###### test func ###### -->
-// Test Add Child to a non-div
+// <-- ###### function ###### -->
 var tool_tips = (parent, content) => {
 
     // let parent = document.getElementById(e.target.id);
@@ -157,6 +211,9 @@ var tool_tips = (parent, content) => {
 
     return;
 }
+// <-- ###### function ###### -->
+// <-- ###### test func ###### -->
+
 // <-- ###### test func ###### -->
 
 
