@@ -145,7 +145,9 @@ var tool_tips = (parent, content) => {
             class_work.delay_add("opc-0", 366);
             class_work.delay_add("nomove", 366);
             setTimeout(()=>{
-                parent.parentNode.removeChild(child);
+                try {
+                    parent.parentNode.removeChild(child);
+                } catch (error){}
             },699);
         } catch (err){
             console.log("Unable to clear tool tip.");
