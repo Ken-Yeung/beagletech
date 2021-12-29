@@ -117,17 +117,26 @@ var tool_tips = (parent, content) => {
     parent.addEventListener("mouseover", ()=>{
         try {
             let child = document.createElement("p");
-
             child.textContent = content.toString();
-
+            child.id = "tool_tip";
             parent.appendChild(child);
         } catch (err) {
-            console.log("Unable to insert tool tips.");
+            console.log("Unable to insert tool tip.");
             console.log(`Error: ${err}`);
         }
         
         return;
     })
+
+    parent.addEventListener("mouseout", ()=>{
+        try {
+            let child = document.getElementById("tool_tip");
+            parent.removeChild(child);
+        } catch (err){
+            console.log("Unable to clear tool tip.");
+            console.log(`Error: ${err}`);
+        }
+    });
 
     return;
 }
