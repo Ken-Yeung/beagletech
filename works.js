@@ -127,9 +127,13 @@ class event_listen {
         tool_tips(this.home, "Home Page");
     }
 
-    show_popup(){
+    show_popup(popup_id){
         let popup = new class_worker("popup", false);
-            
+        let show = new class_worker(popup_id.toString(), false);
+
+        show.remove("noshow");
+        show.delay_remove("hide-btn", 399);
+
         popup.remove("noshow");
         popup.delay_remove("hide-btn", 33);
         disable_scroll();
@@ -140,10 +144,7 @@ class event_listen {
     home_display_card(){
         
         this.home_tutor.addEventListener("click", (e)=>{
-            let popup_slider = new class_worker("popup-slider", false);
-            this.show_popup();
-            popup_slider.remove("noshow");
-            popup_slider.delay_remove("hide-btn", 399);
+            this.show_popup("popup-slide");
         });
 
         this.close_popup.addEventListener("click", (e)=>{
