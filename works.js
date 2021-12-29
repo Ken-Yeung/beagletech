@@ -91,6 +91,7 @@ class event_listen {
         this.start = document.getElementById("btn-start");
         // this.popup = document.getElementById("popup");
         this.close_popup = document.getElementById("popup-close");
+        // this.popup_slider
 
         this.form_1_sumbit = document.getElementById("submit-step1"); //Start
         this.form_2_sumbit = document.getElementById("submit-step2"); //Arg 1
@@ -126,14 +127,26 @@ class event_listen {
         tool_tips(this.home, "Home Page");
     }
 
-    home_display_card(){
-        this.home_tutor.addEventListener("click", (e)=>{
-            let popup = new class_worker("popup", false);
+    show_popup(){
+        let popup = new class_worker("popup", false);
             
-            popup.remove("noshow");
-            popup.delay_remove("hide-btn", 33);
-            disable_scroll();
+        popup.remove("noshow");
+        popup.delay_remove("hide-btn", 33);
+        disable_scroll();
+
+        return;
+    }
+
+    home_display_card(){
+        
+        this.home_tutor.addEventListener("click", (e)=>{
+            let popup_slider = new class_worker("popup-slider", false);
+            popup_slider.remove("noshow");
+            popup_slider.delay_remove("hide-btn", 33);
+
+            this.show_popup();
         });
+
         this.close_popup.addEventListener("click", (e)=>{
             enable_scroll();
             let popup_control = new class_worker("popup", false);
@@ -152,6 +165,8 @@ class event_listen {
             popup_control.delay_add("hide-btn", 345);
             popup_control.delay_add("noshow", 345+333);
         });
+
+        return;
     }
 
     init(){
