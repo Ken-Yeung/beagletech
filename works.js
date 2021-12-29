@@ -1,13 +1,3 @@
-var timeout;
-
-function sleep(delay) {
-    if(timeout) {
-        clearTimeout(timeout);
-    }
-    timeout = setTimeout(function() {
-        myFunction();
-    }, delay);
-}
 // <-- ###### class ###### -->
 class class_worker{
     constructor(id, debug){
@@ -154,8 +144,9 @@ var tool_tips = (parent, content) => {
             let class_work = new class_worker("tool_tip", true);
             class_work.delay_add("opc-0", 366);
             class_work.delay_add("nomove", 366);
-            sleep(699);
-            parent.removeChild(child);
+            setTimeout(()=>{
+                parent.removeChild(child);
+            },699);
         } catch (err){
             console.log("Unable to clear tool tip.");
             console.log(`Error: ${err}`);
