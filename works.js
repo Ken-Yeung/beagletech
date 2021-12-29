@@ -1,3 +1,13 @@
+var timeout;
+
+function sleep(delay) {
+    if(timeout) {
+        clearTimeout(timeout);
+    }
+    timeout = setTimeout(function() {
+        myFunction();
+    }, delay);
+}
 // <-- ###### class ###### -->
 class class_worker{
     constructor(id, debug){
@@ -116,10 +126,20 @@ var tool_tips = (parent, content) => {
 
     parent.addEventListener("mouseover", ()=>{
         try {
-            let child = document.createElement("p");
-            child.textContent = content.toString();
-            child.id = "tool_tip";
-            parent.appendChild(child);
+            if (!document.getElementById("tool_tip")){
+                let child = document.createElement("p");
+                child.textContent = content.toString();
+                child.id = "tool_tip";
+                child.className = "tool_tip nomove opc-0 noshow";
+                parent.appendChild(child);
+
+                let class_work = new class_worker("tool_tip", true);
+                class_work.remove("noshow");
+                class_work.delay_remove("opc-0", 33);
+                class_work.delay_remove("nomove", 33);
+                // let tool_tip = document.getElementById("tool_tip");
+            }
+
         } catch (err) {
             console.log("Unable to insert tool tip.");
             console.log(`Error: ${err}`);
@@ -131,6 +151,10 @@ var tool_tips = (parent, content) => {
     parent.addEventListener("mouseout", ()=>{
         try {
             let child = document.getElementById("tool_tip");
+            let class_work = new class_worker("tool_tip", true);
+            class_work.delay_add("opc-0", 33);
+            class_work.delay_add("nomove", 33);
+            sleep(399);
             parent.removeChild(child);
         } catch (err){
             console.log("Unable to clear tool tip.");
