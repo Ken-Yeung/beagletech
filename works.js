@@ -152,9 +152,9 @@ var tool_tips = (parent, content) => {
         try {
             let child = document.getElementById("tool_tip");
             let class_work = new class_worker("tool_tip", true);
-            class_work.delay_add("opc-0", 33);
-            class_work.delay_add("nomove", 33);
-            sleep(399);
+            class_work.delay_add("opc-0", 366);
+            class_work.delay_add("nomove", 366);
+            sleep(699);
             parent.removeChild(child);
         } catch (err){
             console.log("Unable to clear tool tip.");
