@@ -144,7 +144,7 @@ class event_listen {
     home_display_card(){
         
         this.home_tutor.addEventListener("click", (e)=>{
-            this.show_popup("popup-slide");
+            this.show_popup("popup-slider");
         });
 
         this.close_popup.addEventListener("click", (e)=>{
