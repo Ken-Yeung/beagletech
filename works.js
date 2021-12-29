@@ -141,10 +141,9 @@ class event_listen {
         
         this.home_tutor.addEventListener("click", (e)=>{
             let popup_slider = new class_worker("popup-slider", false);
-            popup_slider.remove("noshow");
-            popup_slider.delay_remove("hide-btn", 33);
-
             this.show_popup();
+            popup_slider.remove("noshow");
+            popup_slider.delay_remove("hide-btn", 399);
         });
 
         this.close_popup.addEventListener("click", (e)=>{
