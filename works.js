@@ -217,12 +217,15 @@ class event_listen {
 
     go_home(){
         this.home.addEventListener("click", (e)=>{
+
+            push_history("main-tab-home");
             document.getElementById("main-tab-home").click();
-            this.progress_bar.style.transform = "translateX(-100%)";
             if (check_desktop_mode()){
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.remove("green");
+            } else {
+                this.progress_bar.style.transform = "translateX(-100%)";
             }
         });
         tool_tips(this.home, "Home Page");
@@ -273,6 +276,7 @@ class event_listen {
     init(){
         this.start.addEventListener("click", (e)=>{
             document.getElementById("main-tab-1").click();
+            push_history("main-tab-1");
             if (check_desktop_mode()){
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
@@ -345,6 +349,11 @@ function check_desktop_mode(){
 }
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
+function push_history(id){
+    history.pushState({id}, `Page ${id}`, `./page=${id}`);
+    return;
+}
+
 
 // <-- ###### test func ###### -->
 
@@ -355,6 +364,9 @@ function check_desktop_mode(){
     listener.go_home();
     listener.init();
 
+    window.addEventListener("popstate", (e)=>{
+        document.getElementById(e.state.id).click();
+    });
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
