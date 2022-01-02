@@ -391,7 +391,11 @@ function push_history(){
 
     window.addEventListener("popstate", (e)=>{
         // console.log(e.state);
-        document.getElementById(e.state.id).click();
+        try {
+            document.getElementById(e.state.id).click();
+        } catch (err) {
+            console.log("No previous record.");
+        }
     });
 
     // console.log(check_desktop_mode());
