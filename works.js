@@ -135,7 +135,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-77.77%)";
+                    this.progress_bar.style.transform = "translateX(-60%)";
                 }
                 document.getElementById(`main-tab-3`).click();
                 break;
@@ -145,7 +145,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-72.21%)";
+                    this.progress_bar.style.transform = "translateX(-50%)";
                 }
                 document.getElementById(`main-tab-4`).click();
                 break;
@@ -155,7 +155,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-66.65%)";
+                    this.progress_bar.style.transform = "translateX(-40%)";
                 }
                 document.getElementById("main-tab-preview").click();
                 break;
