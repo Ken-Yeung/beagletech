@@ -134,15 +134,15 @@ class event_listen {
                 document.getElementById("main-tab-preview").click();
                 break;
 
-            case "preview":
+            case "step5": // preview
                 document.getElementById(`main-tab-payment`).click();
                 break;
 
-            case "payment":
+            case "step6": // payment
                 document.getElementById(`main-tab-final`).click();
                 break;
 
-            case "final":
+            case "step7": // final
                 document.getElementById(`main-tab-step1`).click();
                 break;
 
