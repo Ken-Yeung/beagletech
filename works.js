@@ -143,7 +143,7 @@ class event_listen {
                 break;
 
             case "step7": // final
-                document.getElementById(`main-tab-step1`).click();
+                document.getElementById(`main-tab-1`).click();
                 break;
 
             default:
