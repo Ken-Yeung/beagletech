@@ -218,7 +218,7 @@ class event_listen {
     go_home(){
         this.home.addEventListener("click", (e)=>{
 
-            push_history("main-tab-home");
+            // push_history("main-tab-home");
             document.getElementById("main-tab-home").click();
             if (check_desktop_mode()){
                 this.mini_box1_control.remove("green");
@@ -276,7 +276,7 @@ class event_listen {
     init(){
         this.start.addEventListener("click", (e)=>{
             document.getElementById("main-tab-1").click();
-            push_history("main-tab-1");
+            push_history("main-tab-home");
             if (check_desktop_mode()){
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
@@ -350,7 +350,9 @@ function check_desktop_mode(){
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
 function push_history(id){
-    history.pushState({id}, `Page ${id}`, `./page=${id}`);
+    const num = id.split("-")
+    const page = num[num.length-1];
+    history.pushState({id: id}, `Page ${page}`, `./page=${page}`);
     return;
 }
 
@@ -367,6 +369,9 @@ function push_history(id){
     window.addEventListener("popstate", (e)=>{
         document.getElementById(e.state.id).click();
     });
+
+    let cur = document.getElementById("cur");
+    console.log(cur.childNodes);
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
