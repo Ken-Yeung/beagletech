@@ -140,6 +140,7 @@ class event_listen {
                             break;
 
                         default:
+                            console.log(`Message: ${btn_id[2]}`);
                             console.log(err_msg);
                             break;
                     }
