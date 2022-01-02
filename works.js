@@ -101,6 +101,10 @@ class event_listen {
         this.form_5_sumbit = document.getElementById("submit-step5"); //Preview
 
         this.home_tutor = document.getElementById("main-home-tutorial");
+
+        this.mini_box1_control = new class_worker("mini_box_1");
+        this.mini_box2_control = new class_worker("mini_box_2");
+        this.mini_box3_control = new class_worker("mini_box_3");
     }
 
     all_forms(){
@@ -123,7 +127,9 @@ class event_listen {
             case "step1": // starting
 
                 if (desktop_status) { // Desktop Mode
-                    
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.add("green");
+                    this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-83.33%)";
                 }
@@ -133,7 +139,9 @@ class event_listen {
             case "step2":
 
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.add("green");
+                    this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-60%)";
                 }
@@ -143,7 +151,9 @@ class event_listen {
             case "step3":
 
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.add("green");
+                    this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-50%)";
                 }
@@ -153,7 +163,9 @@ class event_listen {
             case "step4":
 
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.remove("green");
+                    this.mini_box3_control.add("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-40%)";
                 }
@@ -163,7 +175,9 @@ class event_listen {
             case "step5": // preview
 
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.remove("green");
+                    this.mini_box3_control.add("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-33.31%)";
                 }
@@ -171,9 +185,11 @@ class event_listen {
                 break;
 
             case "step6": // payment
-
+                
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.remove("green");
+                    this.mini_box2_control.remove("green");
+                    this.mini_box3_control.add("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(0%)";
                 }
@@ -183,7 +199,9 @@ class event_listen {
             case "step7": // final
 
                 if (desktop_status) { // Desktop Mode
-
+                    this.mini_box1_control.add("green");
+                    this.mini_box2_control.remove("green");
+                    this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-100%)";
                 }
@@ -250,6 +268,11 @@ class event_listen {
     init(){
         this.start.addEventListener("click", (e)=>{
             document.getElementById("main-tab-1").click();
+            if (check_desktop_mode()){
+                this.mini_box1_control.add("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.remove("green");
+            }
         });
         this.home_display_card();
     }
