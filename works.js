@@ -92,6 +92,7 @@ class event_listen {
         // this.popup = document.getElementById("popup");
         this.close_popup = document.getElementById("popup-close");
         // this.popup_slider
+        this.progress_bar = document.getElementById("progress_bar");
 
         this.form_1_sumbit = document.getElementById("submit-step1"); //Start
         this.form_2_sumbit = document.getElementById("submit-step2"); //Arg 1
@@ -117,32 +118,75 @@ class event_listen {
 
     pages(page){
         const err_msg = "No such page here.";
+        const desktop_status = check_desktop_mode();
         switch (page) {
             case "step1": // starting
+
+                if (desktop_status) { // Desktop Mode
+                    
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-83.33%)";
+                }
                 document.getElementById(`main-tab-2`).click();
                 break;
 
             case "step2":
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-77.77%)";
+                }
                 document.getElementById(`main-tab-3`).click();
                 break;
 
             case "step3":
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-72.21%)";
+                }
                 document.getElementById(`main-tab-4`).click();
                 break;
 
             case "step4":
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-66.65%)";
+                }
                 document.getElementById("main-tab-preview").click();
                 break;
 
             case "step5": // preview
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-49.98%)";
+                }
                 document.getElementById(`main-tab-payment`).click();
                 break;
 
             case "step6": // payment
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(-33.31%)";
+                }
                 document.getElementById(`main-tab-final`).click();
                 break;
 
             case "step7": // final
+
+                if (desktop_status) { // Desktop Mode
+
+                } else { // Mobile Mode
+                    this.progress_bar.style.transform = "translateX(0%)";
+                }
                 document.getElementById(`main-tab-1`).click();
                 break;
 
@@ -259,8 +303,7 @@ var tool_tips = (parent, content) => {
 
     return;
 }
-// <-- ###### function ###### -->
-// <-- ###### test func ###### -->
+
 function check_desktop_mode(){
     const progress = document.getElementById("progress");
     const display = window.getComputedStyle(progress).display;
@@ -271,6 +314,9 @@ function check_desktop_mode(){
         return true;
     }
 }
+// <-- ###### function ###### -->
+// <-- ###### test func ###### -->
+
 // <-- ###### test func ###### -->
 
 
@@ -279,8 +325,8 @@ function check_desktop_mode(){
     listener.all_forms();
     listener.go_home();
     listener.init();
-    console.log(check_desktop_mode());
-    
+
+    // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
 })();
