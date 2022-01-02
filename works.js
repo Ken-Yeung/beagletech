@@ -118,7 +118,7 @@ class event_listen {
     pages(page){
         const err_msg = "No such page here.";
         switch (page) {
-            case "step1":
+            case "step1": // starting
                 document.getElementById(`main-tab-2`).click();
                 break;
 
