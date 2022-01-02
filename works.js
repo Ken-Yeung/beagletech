@@ -262,7 +262,9 @@ var tool_tips = (parent, content) => {
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
 function check_desktop(){
-    console.log(document.getElementById("progress").style.display);
+    const progress = document.getElementById("progress");
+    const display = window.getComputedStyle(progress).display;
+    console.log(display);
 }
 // <-- ###### test func ###### -->
 
