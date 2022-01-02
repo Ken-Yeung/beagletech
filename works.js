@@ -112,18 +112,15 @@ class event_listen {
                 if(btn_state == "form"){
                     switch (btn_id[2]) {
                         case "step1":
-                            let ram_id = (parseInt(btn_id[2].charAt(5)) + 1).toString();
-                            document.getElementById(`main-tab-${ram_id}`).click();
+                            document.getElementById(`main-tab-2`).click();
                             break;
-                        
+
                         case "step2":
-                            let ram_id = (parseInt(btn_id[2].charAt(5)) + 1).toString();
-                            document.getElementById(`main-tab-${ram_id}`).click();
+                            document.getElementById(`main-tab-3`).click();
                             break;
-                        
+
                         case "step3":
-                            let ram_id = (parseInt(btn_id[2].charAt(5)) + 1).toString();
-                            document.getElementById(`main-tab-${ram_id}`).click();
+                            document.getElementById(`main-tab-4`).click();
                             break;
 
                         case "step4":
