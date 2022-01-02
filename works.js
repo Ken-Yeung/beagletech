@@ -388,7 +388,7 @@ function push_history(){
     listener.all_forms();
     listener.go_home();
     listener.init();
-
+    history.pushState({id: "main-tab-home"}, `Page home`, `./?page=home`);
     window.addEventListener("popstate", (e)=>{
         // console.log(e.state);
         try {
