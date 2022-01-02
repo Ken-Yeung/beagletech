@@ -165,7 +165,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-49.98%)";
+                    this.progress_bar.style.transform = "translateX(-33.31%)";
                 }
                 document.getElementById(`main-tab-payment`).click();
                 break;
@@ -175,7 +175,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-33.31%)";
+                    this.progress_bar.style.transform = "translateX(0%)";
                 }
                 document.getElementById(`main-tab-final`).click();
                 break;
@@ -185,7 +185,7 @@ class event_listen {
                 if (desktop_status) { // Desktop Mode
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(0%)";
+                    this.progress_bar.style.transform = "translateX(-100%)";
                 }
                 document.getElementById(`main-tab-1`).click();
                 break;
@@ -200,6 +200,7 @@ class event_listen {
     go_home(){
         this.home.addEventListener("click", (e)=>{
             document.getElementById("main-tab-home").click();
+            this.progress_bar.style.transform = "translateX(-100%)";
         });
         tool_tips(this.home, "Home Page");
     }
