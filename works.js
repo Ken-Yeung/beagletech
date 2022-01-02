@@ -111,7 +111,7 @@ class event_listen {
                 const btn_state = btn_id[0];
                 if(btn_state == "form"){
                     try{
-                        let tab_id = (parseInt(btn_id.charAt(btn_id.length-1)) + 1).toString();
+                        let tab_id = (parseInt(btn_id[2].charAt(btn_id.length-1)) + 1).toString();
                         document.getElementById(`main-tab-${tab_id}`).click();
                     } catch (error){
                         try {
