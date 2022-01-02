@@ -103,76 +103,53 @@ class event_listen {
     }
 
     all_forms(){
-        const err_msg = "No such page here.";
         for(let i = 0; i < this.form.length; i++){
             this.form[i].addEventListener("submit", (e)=>{
                 e.preventDefault();
                 const btn_id = e.target.id.split("-");
                 const btn_state = btn_id[0];
                 if(btn_state == "form"){
-                    switch (btn_id[1]) {
-                        case "step1":
-                            document.getElementById(`main-tab-2`).click();
-                            break;
-
-                        case "step2":
-                            document.getElementById(`main-tab-3`).click();
-                            break;
-
-                        case "step3":
-                            document.getElementById(`main-tab-4`).click();
-                            break;
-
-                        case "step4":
-                            document.getElementById("main-tab-preview").click();
-                            break;
-
-                        case "preview":
-                            document.getElementById(`main-tab-payment`).click();
-                            break;
-
-                        case "payment":
-                            document.getElementById(`main-tab-final`).click();
-                            break;
-
-                        case "final":
-                            document.getElementById(`main-tab-step1`).click();
-                            break;
-
-                        default:
-                            console.log(`Message: ${btn_id[1]}`);
-                            console.log(err_msg);
-                            break;
-                    }
-                    // try{
-                    //     let tab_id = (parseInt(btn_id[2].charAt(btn_id[2].length-1)) + 1).toString();
-                    //     document.getElementById(`main-tab-${tab_id}`).click();
-                    // } catch (error){
-                    //     try {
-                    //         switch (btn_id[2]) {
-                    //             case "preview":
-                    //                 document.getElementById(`main-tab-${btn_id[2]}`).click();
-                    //                 break;
-
-                    //             case "payment":
-                    //                 document.getElementById(`main-tab-${btn_id[2]}`).click();
-                    //                 break;
-
-                    //             case "final":
-                    //                 document.getElementById(`main-tab-${btn_id[2]}`).click();
-                    //                 break;
-
-                    //             default:
-                    //                 console.log(err_msg);
-                    //                 break;
-                    //         }
-                    //     } catch (err){
-                    //         console.log(err_msg);
-                    //         // console.log(`ID: main-tab-${(parseInt(btn_id.charAt(btn_id.length-1)) + 1).toString()}`);
-                    //     }
-                    // }
+                    this.pages(btn_id[1]);
                 }
             });
+        }
+    }
+
+    pages(page){
+        const err_msg = "No such page here.";
+        switch (page) {
+            case "step1":
+                document.getElementById(`main-tab-2`).click();
+                break;
+
+            case "step2":
+                document.getElementById(`main-tab-3`).click();
+                break;
+
+            case "step3":
+                document.getElementById(`main-tab-4`).click();
+                break;
+
+            case "step4":
+                document.getElementById("main-tab-preview").click();
+                break;
+
+            case "preview":
+                document.getElementById(`main-tab-payment`).click();
+                break;
+
+            case "payment":
+                document.getElementById(`main-tab-final`).click();
+                break;
+
+            case "final":
+                document.getElementById(`main-tab-step1`).click();
+                break;
+
+            default:
+                console.log(`Message: ${btn_id[1]}`);
+                console.log(err_msg);
+                break;
         }
     }
 
