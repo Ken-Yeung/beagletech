@@ -97,23 +97,45 @@ class event_listen {
         this.form_2_sumbit = document.getElementById("submit-step2"); //Arg 1
         this.form_3_sumbit = document.getElementById("submit-step3"); //Arg 2
         this.form_4_sumbit = document.getElementById("submit-step4"); //Arg 3
+        this.form_5_sumbit = document.getElementById("submit-step5"); //Preview
 
         this.home_tutor = document.getElementById("main-home-tutorial");
     }
 
     all_forms(){
+        const err_msg = "No such page here.";
         for(let i = 0; i < this.form.length; i++){
             this.form[i].addEventListener("submit", (e)=>{
                 e.preventDefault();
-                const btn_id = e.target.id;
-                const btn_state = btn_id.split("-")[0];
+                const btn_id = e.target.id.split("-");
+                const btn_state = btn_id[0];
                 if(btn_state == "form"){
                     try{
                         let tab_id = (parseInt(btn_id.charAt(btn_id.length-1)) + 1).toString();
                         document.getElementById(`main-tab-${tab_id}`).click();
                     } catch (error){
-                        console.log("No such page here.");
-                        console.log(`ID: main-tab-${(parseInt(btn_id.charAt(btn_id.length-1)) + 1).toString()}`);
+                        try {
+                            switch (btn_id[2]) {
+                                case "preview":
+                                    document.getElementById(`main-tab-${btn_id[2]}`).click();
+                                    break;
+
+                                case "payment":
+                                    document.getElementById(`main-tab-${btn_id[2]}`).click();
+                                    break;
+
+                                case "final":
+                                    document.getElementById(`main-tab-${btn_id[2]}`).click();
+                                    break;
+
+                                default:
+                                    console.log(err_msg);
+                                    break;
+                            }
+                        } catch (err){
+                            console.log(err_msg);
+                            // console.log(`ID: main-tab-${(parseInt(btn_id.charAt(btn_id.length-1)) + 1).toString()}`);
+                        }
                     }
                 }
             });
