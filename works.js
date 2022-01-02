@@ -218,7 +218,7 @@ class event_listen {
     go_home(){
         this.home.addEventListener("click", (e)=>{
 
-            // push_history("main-tab-home");
+            push_history();
             document.getElementById("main-tab-home").click();
             if (check_desktop_mode()){
                 this.mini_box1_control.remove("green");
@@ -275,8 +275,9 @@ class event_listen {
 
     init(){
         this.start.addEventListener("click", (e)=>{
+            push_history();
+
             document.getElementById("main-tab-1").click();
-            push_history("main-tab-home");
             if (check_desktop_mode()){
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
@@ -349,10 +350,21 @@ function check_desktop_mode(){
 }
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
-function push_history(id){
-    const num = id.split("-")
-    const page = num[num.length-1];
-    history.pushState({id: id}, `Page ${page}`, `./page=${page}`);
+function push_history(){
+    const cur = document.getElementById("cur");
+    const all_pages = cur.childNodes
+    // all_pages.forEach(e => {
+    //     console.log(`${e.id}: ${e.ariaSelected}`);
+    // });
+    for (let i = 0; i < all_pages.length; i++){
+        let status = all_pages[i].ariaSelected == "true";
+        if(status){
+            let num = all_pages[i].id.split("-")
+            let page = num[num.length-1];
+            history.pushState({id: num.join("-")}, `Page ${page}`, `./page=${page}`);
+            break;
+        }
+    }
     return;
 }
 
@@ -371,12 +383,6 @@ function push_history(id){
         // document.getElementById(e.state.id).click();
     });
 
-    let cur = document.getElementById("cur");
-    // console.log(cur.childNodes);
-    let all_pages = cur.childNodes
-    all_pages.forEach(e => {
-        console.log(`${e.id}: ${e.ariaSelected}`);
-    });
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
