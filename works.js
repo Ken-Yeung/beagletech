@@ -110,7 +110,7 @@ class event_listen {
                 const btn_id = e.target.id.split("-");
                 const btn_state = btn_id[0];
                 if(btn_state == "form"){
-                    switch (btn_id[2]) {
+                    switch (btn_id[1]) {
                         case "step1":
                             document.getElementById(`main-tab-2`).click();
                             break;
@@ -128,19 +128,19 @@ class event_listen {
                             break;
 
                         case "preview":
-                            document.getElementById(`main-tab-${btn_id[2]}`).click();
+                            document.getElementById(`main-tab-payment`).click();
                             break;
 
                         case "payment":
-                            document.getElementById(`main-tab-${btn_id[2]}`).click();
+                            document.getElementById(`main-tab-final`).click();
                             break;
 
                         case "final":
-                            document.getElementById(`main-tab-${btn_id[2]}`).click();
+                            document.getElementById(`main-tab-step1`).click();
                             break;
 
                         default:
-                            console.log(`Message: ${btn_id[2]}`);
+                            console.log(`Message: ${btn_id[1]}`);
                             console.log(err_msg);
                             break;
                     }
