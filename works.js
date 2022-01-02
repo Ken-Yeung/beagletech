@@ -367,11 +367,16 @@ function push_history(id){
     listener.init();
 
     window.addEventListener("popstate", (e)=>{
-        document.getElementById(e.state.id).click();
+        console.log(e.state);
+        // document.getElementById(e.state.id).click();
     });
 
     let cur = document.getElementById("cur");
-    console.log(cur.childNodes);
+    // console.log(cur.childNodes);
+    let all_pages = cur.childNodes
+    all_pages.forEach(e => {
+        console.log(`${e.id}: ${e.ariaSelected}`);
+    });
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
