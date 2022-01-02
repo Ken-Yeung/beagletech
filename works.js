@@ -261,10 +261,15 @@ var tool_tips = (parent, content) => {
 }
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
-function check_desktop(){
+function check_desktop_mode(){
     const progress = document.getElementById("progress");
     const display = window.getComputedStyle(progress).display;
-    console.log(display);
+    // console.log(display);
+    if (display != "none"){
+        return false;
+    } else {
+        return true;
+    }
 }
 // <-- ###### test func ###### -->
 
@@ -274,7 +279,7 @@ function check_desktop(){
     listener.all_forms();
     listener.go_home();
     listener.init();
-    check_desktop();
+    console.log(check_desktop_mode());
     
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
