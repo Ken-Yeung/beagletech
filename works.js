@@ -126,6 +126,8 @@ class event_listen {
         switch (page) {
             case "step1": // starting
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -138,6 +140,8 @@ class event_listen {
 
             case "step2":
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -150,6 +154,8 @@ class event_listen {
 
             case "step3":
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -162,6 +168,8 @@ class event_listen {
 
             case "step4":
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -174,6 +182,8 @@ class event_listen {
 
             case "step5": // preview
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -186,6 +196,8 @@ class event_listen {
 
             case "step6": // payment
                 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -198,6 +210,8 @@ class event_listen {
 
             case "step7": // final
 
+                // Start Next page
+                push_history();
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.add("green");
                     this.mini_box2_control.remove("green");
@@ -379,8 +393,8 @@ function push_history(){
     listener.init();
 
     window.addEventListener("popstate", (e)=>{
-        console.log(e.state);
-        // document.getElementById(e.state.id).click();
+        // console.log(e.state);
+        document.getElementById(e.state.id).click();
     });
 
     // console.log(check_desktop_mode());
