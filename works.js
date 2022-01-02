@@ -362,26 +362,23 @@ function check_desktop_mode(){
         return true;
     }
 }
-// <-- ###### function ###### -->
-// <-- ###### test func ###### -->
+
 function push_history(){
     const cur = document.getElementById("cur");
-    const all_pages = cur.childNodes
-    // all_pages.forEach(e => {
-    //     console.log(`${e.id}: ${e.ariaSelected}`);
-    // });
+    const all_pages = cur.childNodes;
     for (let i = 0; i < all_pages.length; i++){
         let status = all_pages[i].ariaSelected == "true";
         if(status){
-            let num = all_pages[i].id.split("-")
+            let num = all_pages[i].id.split("-");
             let page = num[num.length-1];
-            history.pushState({id: num.join("-")}, `Page ${page}`, `./page=${page}`);
+            history.pushState({id: num.join("-")}, `Page ${page}`, `./?page=${page}`);
             break;
         }
     }
     return;
 }
-
+// <-- ###### function ###### -->
+// <-- ###### test func ###### -->
 
 // <-- ###### test func ###### -->
 
