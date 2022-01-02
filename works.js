@@ -393,6 +393,13 @@ function push_history(){
         // console.log(e.state);
         try {
             document.getElementById(e.state.id).click();
+            if (check_desktop_mode()) { // Desktop Mode
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.remove("green");
+            } else { // Mobile Mode
+                this.progress_bar.style.transform = "translateX(-100%)";
+            }
         } catch (err) {
             console.log("No previous record.");
         }
