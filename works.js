@@ -261,7 +261,9 @@ var tool_tips = (parent, content) => {
 }
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
-
+function check_desktop(){
+    console.log(document.getElementById("progress").style.display);
+}
 // <-- ###### test func ###### -->
 
 
@@ -270,7 +272,8 @@ var tool_tips = (parent, content) => {
     listener.all_forms();
     listener.go_home();
     listener.init();
-
+    check_desktop();
+    
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
 })();
