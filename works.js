@@ -24,7 +24,7 @@ function enable_scroll() {
 
 // <-- ###### class ###### -->
 class class_worker{
-    constructor(id, debug){
+    constructor(id, debug=false){
         this.elem = document.getElementById(id.toString());
         this.debug = debug;
     }
