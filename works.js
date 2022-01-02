@@ -219,6 +219,11 @@ class event_listen {
         this.home.addEventListener("click", (e)=>{
             document.getElementById("main-tab-home").click();
             this.progress_bar.style.transform = "translateX(-100%)";
+            if (check_desktop_mode()){
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.remove("green");
+            }
         });
         tool_tips(this.home, "Home Page");
     }
