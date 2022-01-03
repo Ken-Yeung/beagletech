@@ -127,7 +127,7 @@ class event_listen {
             case "step1": // starting
 
                 // Start Next page
-                push_history("2");
+                push_history("2", "main-tab-2");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -141,7 +141,7 @@ class event_listen {
             case "step2":
 
                 // Start Next page
-                push_history("3");
+                push_history("3", "main-tab-3");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -155,7 +155,7 @@ class event_listen {
             case "step3":
 
                 // Start Next page
-                push_history("4");
+                push_history("4", "main-tab-4");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
@@ -169,7 +169,7 @@ class event_listen {
             case "step4":
 
                 // Start Next page
-                push_history("preview");
+                push_history("preview", "main-tab-preview");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -183,7 +183,7 @@ class event_listen {
             case "step5": // preview
 
                 // Start Next page
-                push_history("payment");
+                push_history("payment", "main-tab-payment");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -197,7 +197,7 @@ class event_listen {
             case "step6": // payment
                 
                 // Start Next page
-                push_history("final");
+                push_history("final", "main-tab-final");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
@@ -211,7 +211,7 @@ class event_listen {
             case "step7": // final
 
                 // Start Next page
-                push_history("1");
+                push_history("1", "main-tab-1");
                 if (desktop_status) { // Desktop Mode
                     this.mini_box1_control.add("green");
                     this.mini_box2_control.remove("green");
@@ -232,7 +232,7 @@ class event_listen {
     go_home(){
         this.home.addEventListener("click", (e)=>{
 
-            push_history("home");
+            push_history("home", "main-tab-home");
             document.getElementById("main-tab-home").click();
             if (check_desktop_mode()){
                 this.mini_box1_control.remove("green");
@@ -289,7 +289,7 @@ class event_listen {
 
     init(){
         this.start.addEventListener("click", (e)=>{
-            push_history("1");
+            push_history("1", "main-tab-1");
 
             document.getElementById("main-tab-1").click();
             if (check_desktop_mode()){
@@ -380,18 +380,19 @@ function check_desktop_mode(){
     }
 }
 
-function push_history(to_page){
-    const cur = document.getElementById("cur");
-    const all_pages = cur.childNodes;
-    for (let i = 0; i < all_pages.length; i++){
-        let status = all_pages[i].ariaSelected == "true";
-        if(status){
-            let num = all_pages[i].id.split("-");
-            let page = num[num.length-1];
-            history.pushState({id: num.join("-")}, `Page ${to_page}`, `./?page=${to_page}`);
-            break;
-        }
-    }
+function push_history(to_page, id){
+    // const cur = document.getElementById("cur");
+    // const all_pages = cur.childNodes;
+    // for (let i = 0; i < all_pages.length; i++){
+    //     let status = all_pages[i].ariaSelected == "true";
+    //     if(status){
+    //         let num = all_pages[i].id.split("-");
+    //         let page = num[num.length-1];
+    //         history.pushState({id: num.join("-")}, `Page ${to_page}`, `./?page=${to_page}`);
+    //         break;
+    //     }
+    // }
+    history.pushState({id: id}, `Page ${to_page}`, `./?page=${to_page}`);
     return;
 }
 // <-- ###### function ###### -->
