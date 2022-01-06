@@ -141,12 +141,12 @@ class event_listen {
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
 
-                    let poc_1 = {tab: 1, pos: 1};
-                    this.main_tab_process(false, poc_1, 0);
+                    // let poc_1 = {tab: 1, pos: 1};
+                    // this.main_tab_process(false, poc_1, 0);
 
-                    let poc_2 = {tab:1, pos: 2};
-                    this.main_tab_process(true, poc_2, 333);
-
+                    // let poc_2 = {tab:1, pos: 2};
+                    // this.main_tab_process(true, poc_2, 333);
+                    this.right_card_animated_controller("2");
 
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-83.33%)";
@@ -163,11 +163,7 @@ class event_listen {
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
 
-                    let poc_1 = {tab: 2, pos: 1};
-                    this.main_tab_process(false, poc_1, 0);
-
-                    let poc_2 = {tab:2, pos: 2};
-                    this.main_tab_process(true, poc_2, 333);
+                    this.right_card_animated_controller("3");
 
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-60%)";
@@ -184,8 +180,7 @@ class event_listen {
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
 
-                    let poc_3 = {tab:2, pos: 3};
-                    this.main_tab_process(true, poc_3, 0);
+                    this.right_card_animated_controller("4");
 
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-50%)";
@@ -202,8 +197,9 @@ class event_listen {
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.add("green");
 
-                    let poc_4 = {tab:2, pos: 4};
-                    this.main_tab_process(true, poc_4, 0);
+                    // let poc_4 = {tab:2, pos: 4};
+                    // this.main_tab_process(true, poc_4, 0);
+                    this.right_card_animated_controller("preview");
 
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-40%)";
@@ -219,6 +215,8 @@ class event_listen {
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.add("green");
+
+                    this.right_card_animated_controller("payment");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-33.31%)";
                 }
@@ -247,6 +245,8 @@ class event_listen {
                     this.mini_box1_control.add("green");
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.remove("green");
+
+                    this.right_card_animated_controller("1");
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-100%)";
                 }
@@ -269,6 +269,8 @@ class event_listen {
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.remove("green");
+
+                this.right_card_animated_controller("home");
             } else {
                 this.progress_bar.style.transform = "translateX(-100%)";
             }
@@ -333,76 +335,156 @@ class event_listen {
         },delay_ms);
     }
 
-    btn_filter(id){ // for popstate
-        let status = false;
+    right_card_animated_controller(tab_id){
+        switch(tab_id){
+            case "1":
+                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
 
-        for (let i = 0; i < this.popstate_id_list.length; i++){
-            if (id == this.popstate_id_list[i]){
-                status = true;
+                this.main_tab_process(true, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
-            }
-        }
 
-        if (status){
+            case "2":
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+
+                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                break;
+
+            case "3":
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+
+                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+
+                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                break;
+
+            case "4":
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+
+                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                break;
+
+            case "preview":
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                break;
+            
+            case "payment":
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                break;
+            
+            case "home":
+                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                break;
+
+            default:
+                break;
+        }
+    }
+
+    btn_filter(id){ // for popstate
+
+        let tab_id = id.split("-")[2];
+        this.right_card_animated_controller(tab_id);
+        // let status = false;
+
+        // for (let i = 0; i < this.popstate_id_list.length; i++){
+        //     if (id == this.popstate_id_list[i]){
+        //         status = true;
+        //         break;
+        //     }
+        // }
+
+        // if (status){
             // document.getElementById(id).click();
-            let tab_id = id.split("-")[2];
+            // let tab_id = id.split("-")[2];
+            // this.right_card_animated_controller(tab_id);
             // console.log(`Back to ${tab_id}`);
-            switch(tab_id){
-                case "1":
-                    this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                    this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+            // switch(tab_id){
+            //     case "1":
+            //         this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+            //         this.main_tab_process(false, {tab: 1, pos: 2}, 0);
 
-                    this.main_tab_process(true, {tab: 2, pos: 1}, 0);
-                    this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                    this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-                    break;
+            //         this.main_tab_process(true, {tab: 2, pos: 1}, 0);
+            //         this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+            //         break;
 
-                case "2":
-                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                    this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                    this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+            //     case "2":
+            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+            //         this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+            //         this.main_tab_process(false, {tab: 2, pos: 2}, 0);
 
-                    this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-                    break;
+            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+            //         break;
 
-                case "3":
-                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+            //     case "3":
+            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
 
-                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
 
-                    this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-                    break;
+            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+            //         break;
 
-                case "4":
-                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+            //     case "4":
+            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
 
-                    this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+            //         this.main_tab_process(true, {tab: 2, pos: 3}, 333);
 
-                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-                    break;
+            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+            //         break;
 
-                case "preview":
-                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                    this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                    this.main_tab_process(true, {tab: 2, pos: 4}, 0);
-                    break;
+            //     case "preview":
+            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+            //         this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+            //         this.main_tab_process(true, {tab: 2, pos: 4}, 0);
+            //         break;
 
-                default:
-                    break;
-            }
-        }
+            //     default:
+            //         break;
+            // }
+        // }
 
         document.getElementById(id).click();
     }
