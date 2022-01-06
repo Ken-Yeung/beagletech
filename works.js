@@ -105,6 +105,13 @@ class event_listen {
         this.mini_box1_control = new class_worker("mini_box_1");
         this.mini_box2_control = new class_worker("mini_box_2");
         this.mini_box3_control = new class_worker("mini_box_3");
+
+        this.process_id_list = [
+            "main-tab-2", // to arg1 page
+            "main-tab-3", // to arg2 page
+            "main-tab-4", // to arg3 page
+            "main-tab-preview", // to preview page
+        ]
     }
 
     all_forms(){
@@ -132,6 +139,14 @@ class event_listen {
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
+
+                    let poc_1 = {tab: 1, pos: 1};
+                    this.main_tab_process(false, poc_1, 0);
+
+                    let poc_2 = {tab:1, pos: 2};
+                    this.main_tab_process(true, poc_2, 333);
+
+
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-83.33%)";
                 }
@@ -287,6 +302,61 @@ class event_listen {
         return;
     }
 
+    main_tab_process(dir=true, id = {tab: 0, pos: 0}, delay_ms=0){
+        let pcard = new class_worker(`pcard-${id.tab.toString()}-${id.pos.toString()}`);
+        setTimeout(()=>{
+            if(dir){ //accending
+                pcard.remove("noshow");
+                pcard.delay_remove("opc-0", 33);
+                pcard.delay_remove("pos-right", 33);
+            } else { //deccending
+                pcard.add("pos-right");
+                pcard.add("opc-0");
+                pcard.delay_add("noshow", 333);
+            }
+        },delay_ms);
+    }
+
+    btn_filter(id){ // for popstate
+        let status = false;
+
+        for (let i = 0; i < this.process_id_list.length; i++){
+            if (id == this.process_id_list[i]){
+                status = true;
+                break;
+            }
+        }
+
+        if (status){
+            // document.getElementById(id).click();
+            let tab_id = id.split("-")[2];
+            console.log(`Back to ${tab_id}`);
+            switch(tab_id){
+                case "1":
+                    let poc_2 = {tab: 1, pos: 2};
+                    this.main_tab_process(false, poc_2, 0);
+
+                    let poc_1 = {tab: 1, pos: 1};
+                    this.main_tab_process(true, poc_1, 333);
+                    break;
+
+                case "2":
+                    break;
+
+                case "3":
+                    break;
+
+                case "4":
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        document.getElementById(id).click();
+    }
+
     init(){
         this.start.addEventListener("click", (e)=>{
             push_history("1", "main-tab-1");
@@ -304,12 +374,15 @@ class event_listen {
         window.addEventListener("popstate", (e)=>{
             // console.log(e.state);
             try {
-                document.getElementById(e.state.id).click();
+                // document.getElementById(e.state.id).click();
                 if (check_desktop_mode()) { // Desktop Mode
+                    this.btn_filter(e.state.id);
+                    // document.getElementById(e.state.id).click();
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
+                    document.getElementById(e.state.id).click();
                     this.progress_bar.style.transform = "translateX(-100%)";
                 }
             } catch (err) {
