@@ -349,37 +349,53 @@ class event_listen {
             console.log(`Back to ${tab_id}`);
             switch(tab_id){
                 case "1":
-                    let poc_2 = {tab: 1, pos: 2};
-                    this.main_tab_process(false, poc_2, 0);
+                    this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                    this.main_tab_process(false, {tab: 1, pos: 2}, 0);
 
-                    let poc_1 = {tab: 1, pos: 1};
-                    this.main_tab_process(true, poc_1, 333);
+                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                    this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                     break;
 
                 case "2":
-                    this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                    this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-
+                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                     this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                    this.main_tab_process(false, {tab: 1, pos: 1}, 333);
+                    this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                    this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+
+                    this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                     break;
 
                 case "3":
-                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+
                     this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
 
                     this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                    this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                     break;
 
                 case "4":
-                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
                     this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+
                     this.main_tab_process(true, {tab: 2, pos: 3}, 333);
 
                     this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                     break;
 
                 case "preview":
+                    this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                    this.main_tab_process(true, {tab: 2, pos: 3}, 333);
                     this.main_tab_process(true, {tab: 2, pos: 4}, 0);
                     break;
 
