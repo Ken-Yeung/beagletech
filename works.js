@@ -357,15 +357,24 @@ class event_listen {
 
                 case "2":
                     this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-
                     this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+
+                    this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                    this.main_tab_process(true, {tab: 1, pos: 1}, 333);
                     break;
 
                 case "3":
+                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+
                     this.main_tab_process(false, {tab: 2, pos: 3}, 0);
                     break;
 
                 case "4":
+                    this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+
                     this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                     break;
 
