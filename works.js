@@ -106,11 +106,11 @@ class event_listen {
         this.mini_box2_control = new class_worker("mini_box_2");
         this.mini_box3_control = new class_worker("mini_box_3");
 
-        this.process_id_list = [
-            "main-tab-2", // to arg1 page
-            "main-tab-3", // to arg2 page
-            "main-tab-4", // to arg3 page
-            "main-tab-preview", // to preview page
+        this.popstate_id_list = [
+            "main-tab-1", 
+            "main-tab-2", 
+            "main-tab-3", 
+            "main-tab-4", 
         ]
     }
 
@@ -320,8 +320,8 @@ class event_listen {
     btn_filter(id){ // for popstate
         let status = false;
 
-        for (let i = 0; i < this.process_id_list.length; i++){
-            if (id == this.process_id_list[i]){
+        for (let i = 0; i < this.popstate_id_list.length; i++){
+            if (id == this.popstate_id_list[i]){
                 status = true;
                 break;
             }
