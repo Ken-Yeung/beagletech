@@ -346,7 +346,7 @@ class event_listen {
         if (status){
             // document.getElementById(id).click();
             let tab_id = id.split("-")[2];
-            console.log(`Back to ${tab_id}`);
+            // console.log(`Back to ${tab_id}`);
             switch(tab_id){
                 case "1":
                     this.main_tab_process(true, {tab: 1, pos: 1}, 333);
