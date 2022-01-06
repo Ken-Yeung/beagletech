@@ -161,6 +161,13 @@ class event_listen {
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
+
+                    let poc_1 = {tab: 2, pos: 1};
+                    this.main_tab_process(false, poc_1, 0);
+
+                    let poc_2 = {tab:2, pos: 2};
+                    this.main_tab_process(true, poc_2, 333);
+
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-60%)";
                 }
@@ -175,6 +182,10 @@ class event_listen {
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.add("green");
                     this.mini_box3_control.remove("green");
+
+                    let poc_3 = {tab:2, pos: 3};
+                    this.main_tab_process(true, poc_3, 0);
+
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-50%)";
                 }
@@ -189,6 +200,10 @@ class event_listen {
                     this.mini_box1_control.remove("green");
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.add("green");
+
+                    let poc_4 = {tab:2, pos: 4};
+                    this.main_tab_process(true, poc_4, 0);
+
                 } else { // Mobile Mode
                     this.progress_bar.style.transform = "translateX(-40%)";
                 }
