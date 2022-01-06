@@ -111,6 +111,7 @@ class event_listen {
             "main-tab-2", 
             "main-tab-3", 
             "main-tab-4", 
+            "main-tab-preview"
         ]
     }
 
@@ -359,8 +360,8 @@ class event_listen {
                     this.main_tab_process(false, {tab: 2, pos: 2}, 0);
                     this.main_tab_process(true, {tab: 2, pos: 1}, 333);
 
-                    this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-                    this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                    this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                    this.main_tab_process(false, {tab: 1, pos: 1}, 333);
                     break;
 
                 case "3":
@@ -376,6 +377,10 @@ class event_listen {
                     this.main_tab_process(true, {tab: 2, pos: 3}, 333);
 
                     this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                    break;
+
+                case "preview":
+                    this.main_tab_process(true, {tab: 2, pos: 4}, 0);
                     break;
 
                 default:
