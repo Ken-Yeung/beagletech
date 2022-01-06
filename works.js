@@ -167,7 +167,7 @@ class event_listen {
                     this.right_card_animated_controller("3");
 
                 } else { // Mobile Mode
-                    let finished_perc = (40 - 100).toString();
+                    let finished_perc = (55 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-3`).click();
@@ -185,7 +185,7 @@ class event_listen {
                     this.right_card_animated_controller("4");
 
                 } else { // Mobile Mode
-                    let finished_perc = (55 - 100).toString();
+                    let finished_perc = (50 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-4`).click();
@@ -205,7 +205,7 @@ class event_listen {
                     this.right_card_animated_controller("preview");
 
                 } else { // Mobile Mode
-                    let finished_perc = (70 - 100).toString();
+                    let finished_perc = (75 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById("main-tab-preview").click();
@@ -222,7 +222,7 @@ class event_listen {
 
                     this.right_card_animated_controller("payment");
                 } else { // Mobile Mode
-                    let finished_perc = (75 - 100).toString();
+                    let finished_perc = (90 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-payment`).click();
@@ -237,7 +237,7 @@ class event_listen {
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.add("green");
                 } else { // Mobile Mode
-                    let finished_perc = (90 - 100).toString();
+                    let finished_perc = (100 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-final`).click();
