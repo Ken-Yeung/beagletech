@@ -149,7 +149,7 @@ class event_listen {
                     this.right_card_animated_controller("2");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-83.33%)";
+                    this.progress_bar.style.transform = "translateX(-60%)";
                 }
                 document.getElementById(`main-tab-2`).click();
                 break;
@@ -166,7 +166,7 @@ class event_listen {
                     this.right_card_animated_controller("3");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-60%)";
+                    this.progress_bar.style.transform = "translateX(-45%)";
                 }
                 document.getElementById(`main-tab-3`).click();
                 break;
@@ -183,7 +183,7 @@ class event_listen {
                     this.right_card_animated_controller("4");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-50%)";
+                    this.progress_bar.style.transform = "translateX(-30%)";
                 }
                 document.getElementById(`main-tab-4`).click();
                 break;
@@ -202,7 +202,7 @@ class event_listen {
                     this.right_card_animated_controller("preview");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-40%)";
+                    this.progress_bar.style.transform = "translateX(-25%)";
                 }
                 document.getElementById("main-tab-preview").click();
                 break;
@@ -218,7 +218,7 @@ class event_listen {
 
                     this.right_card_animated_controller("payment");
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-33.31%)";
+                    this.progress_bar.style.transform = "translateX(-10%)";
                 }
                 document.getElementById(`main-tab-payment`).click();
                 break;
