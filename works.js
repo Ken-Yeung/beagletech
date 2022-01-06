@@ -167,7 +167,7 @@ class event_listen {
                     this.right_card_animated_controller("3");
 
                 } else { // Mobile Mode
-                    let finished_perc = (55 - 100).toString();
+                    let finished_perc = (50 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-3`).click();
@@ -185,7 +185,7 @@ class event_listen {
                     this.right_card_animated_controller("4");
 
                 } else { // Mobile Mode
-                    let finished_perc = (50 - 100).toString();
+                    let finished_perc = (55 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-4`).click();
