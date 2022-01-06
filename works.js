@@ -352,7 +352,7 @@ class event_listen {
                     this.main_tab_process(true, {tab: 1, pos: 1}, 333);
                     this.main_tab_process(false, {tab: 1, pos: 2}, 0);
 
-                    this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                    this.main_tab_process(true, {tab: 2, pos: 1}, 0);
                     this.main_tab_process(false, {tab: 2, pos: 2}, 0);
                     this.main_tab_process(false, {tab: 2, pos: 3}, 0);
                     this.main_tab_process(false, {tab: 2, pos: 4}, 0);
@@ -416,6 +416,13 @@ class event_listen {
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.remove("green");
+
+                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
             }
         });
 
