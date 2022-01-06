@@ -149,7 +149,8 @@ class event_listen {
                     this.right_card_animated_controller("2");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-60%)";
+                    let finished_perc = (40 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-2`).click();
                 break;
@@ -166,7 +167,8 @@ class event_listen {
                     this.right_card_animated_controller("3");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-45%)";
+                    let finished_perc = (40 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-3`).click();
                 break;
@@ -183,7 +185,8 @@ class event_listen {
                     this.right_card_animated_controller("4");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-30%)";
+                    let finished_perc = (55 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-4`).click();
                 break;
@@ -202,7 +205,8 @@ class event_listen {
                     this.right_card_animated_controller("preview");
 
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-25%)";
+                    let finished_perc = (70 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById("main-tab-preview").click();
                 break;
@@ -218,7 +222,8 @@ class event_listen {
 
                     this.right_card_animated_controller("payment");
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-10%)";
+                    let finished_perc = (75 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-payment`).click();
                 break;
@@ -232,7 +237,8 @@ class event_listen {
                     this.mini_box2_control.remove("green");
                     this.mini_box3_control.add("green");
                 } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(0%)";
+                    let finished_perc = (90 - 100).toString();
+                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
                 }
                 document.getElementById(`main-tab-final`).click();
                 break;
