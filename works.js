@@ -480,7 +480,7 @@ class form_formation {
             "subject": "",
             "impact": null, // boolean
             "object": "",
-        }
+        };
 
         this.form = {
             // "token": "",
@@ -489,8 +489,20 @@ class form_formation {
                 "",
                 "",
                 ""
-            ]
+            ],
+            "preview": "",
+            "body": ""
         };
+
+        this.suggestion = {
+            "arg1": [],
+            "arg2": [],
+            "arg3": []
+        };
+
+        this.form_id = "form";
+        this.clean_form_id = "clean_form";
+        this.clean_suggestion_id = "clean_suggestion";
 
     }
 
@@ -499,16 +511,28 @@ class form_formation {
     init_form(){ // Page Load
 
         // Test Init
-        localStorage.setItem("form", JSON.stringify(this.form));
+        localStorage.setItem(this.form_id, JSON.stringify(this.form));
         // Test Init
 
-        let data = JSON.parse(localStorage.getItem('form'));
+        localStorage.setItem(this.clean_form_id, JSON.stringify(this.form));
+        localStorage.setItem(this.clean_suggestion_id, JSON.stringify(this.suggestion));
+
+        let data = JSON.parse(localStorage.getItem(this.form_id));
+        let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
+
+        let status = data != clean_form;
+
+        if (status){
+            console.log("Record Found");
+        } else {
+            console.log("Empty Slot");
+        }
 
         console.log(data);
         console.log(typeof(data));
 
         // Test
-        localStorage.removeItem("form");
+        localStorage.removeItem(this.form_id);
         console.log(data);
     }
 
