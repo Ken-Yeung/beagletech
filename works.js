@@ -520,6 +520,8 @@ class form_formation {
         let data = JSON.parse(localStorage.getItem(this.form_id));
         let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
 
+        data.preview = "Hello World";
+
         let status = _.isEqual(data, clean_form);
 
         if (!status){
@@ -533,7 +535,7 @@ class form_formation {
 
         // Test
         localStorage.removeItem(this.form_id);
-        console.log(data);
+        console.log(localStorage.getItem(this.form_id));
     }
 
     init(){
