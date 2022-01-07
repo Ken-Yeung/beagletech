@@ -655,7 +655,7 @@ function push_history(to_page, id){
     history.pushState({id: "main-tab-home"}, `Page home`, `./?page=home`);
 
     var worker = new workers();
-    let result = worker.request("GET", "main.js");
+    let result = await worker.request("GET", "main.js");
     console.log(result);
 
     // console.log(check_desktop_mode());
