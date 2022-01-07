@@ -657,7 +657,7 @@ function push_history(to_page, id){
     var worker = new workers();
     let result = worker.request("GET", "main.js");
     result.then((res) => {
-        console.log(res);
+        alert(`Test result: ${res}`);
     });
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
