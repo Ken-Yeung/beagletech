@@ -421,76 +421,6 @@ class event_listen {
 
         let tab_id = id.split("-")[2];
         this.right_card_animated_controller(tab_id);
-        // let status = false;
-
-        // for (let i = 0; i < this.popstate_id_list.length; i++){
-        //     if (id == this.popstate_id_list[i]){
-        //         status = true;
-        //         break;
-        //     }
-        // }
-
-        // if (status){
-            // document.getElementById(id).click();
-            // let tab_id = id.split("-")[2];
-            // this.right_card_animated_controller(tab_id);
-            // console.log(`Back to ${tab_id}`);
-            // switch(tab_id){
-            //     case "1":
-            //         this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-            //         this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-
-            //         this.main_tab_process(true, {tab: 2, pos: 1}, 0);
-            //         this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-            //         break;
-
-            //     case "2":
-            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-            //         this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-            //         this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-
-            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-            //         break;
-
-            //     case "3":
-            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-
-            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-
-            //         this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-            //         break;
-
-            //     case "4":
-            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-
-            //         this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-
-            //         this.main_tab_process(false, {tab: 2, pos: 4}, 0);
-            //         break;
-
-            //     case "preview":
-            //         this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-            //         this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-            //         this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-            //         this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-            //         this.main_tab_process(true, {tab: 2, pos: 4}, 0);
-            //         break;
-
-            //     default:
-            //         break;
-            // }
-        // }
 
         document.getElementById(id).click();
     }
@@ -534,9 +464,58 @@ class event_listen {
                 console.log("No previous record.");
             }
         });
+
+        let form = new form_formation();
+        form.init();
+
     }
 
 }
+
+class form_formation {
+    
+    constructor(){
+
+        this.topic = {
+            "subject": "",
+            "impact": null, // boolean
+            "object": "",
+        }
+
+        this.form = {
+            // "token": "",
+            "topic": this.topic,
+            "args": [
+                "",
+                "",
+                ""
+            ]
+        };
+
+    }
+
+    // get_token(){}
+
+    init_form(){ // Page Load
+
+        // Test Init
+        localStorage.setItem("form", this.form);
+        // Test Init
+
+        let data = localStorage.getItem('form');
+
+        console.log(data);
+        console.log(typeof(data));
+
+        localStorage.removeItem("form");
+    }
+
+    init(){
+        init_form();
+    }
+
+}
+
 // <-- ###### class ###### -->
 // <-- ###### function ###### -->
 var tool_tips = (parent, content) => {
@@ -599,17 +578,6 @@ function check_desktop_mode(){
 }
 
 function push_history(to_page, id){
-    // const cur = document.getElementById("cur");
-    // const all_pages = cur.childNodes;
-    // for (let i = 0; i < all_pages.length; i++){
-    //     let status = all_pages[i].ariaSelected == "true";
-    //     if(status){
-    //         let num = all_pages[i].id.split("-");
-    //         let page = num[num.length-1];
-    //         history.pushState({id: num.join("-")}, `Page ${to_page}`, `./?page=${to_page}`);
-    //         break;
-    //     }
-    // }
     history.pushState({id: id}, `Page ${to_page}`, `./?page=${to_page}`);
     return;
 }
