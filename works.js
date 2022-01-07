@@ -520,7 +520,7 @@ class form_formation {
         let data = JSON.parse(localStorage.getItem(this.form_id));
         let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
 
-        let status = _.isEqual(data, clean_form);
+        let status = isEqual(data, clean_form);
 
         if (!status){
             console.log("Record Found");
