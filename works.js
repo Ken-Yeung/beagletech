@@ -502,7 +502,7 @@ class form_formation {
         localStorage.setItem("form", this.form);
         // Test Init
 
-        let data = localStorage.getItem('form');
+        let data = JSON.parse(localStorage.getItem('form'));
 
         console.log(data);
         console.log(typeof(data));
