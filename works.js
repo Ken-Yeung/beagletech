@@ -511,7 +511,7 @@ class form_formation {
     init_form(){ // Page Load
 
         // Test Init
-        localStorage.setItem(this.form_id, JSON.stringify(this.form));
+        // localStorage.setItem(this.form_id, JSON.stringify(this.form));
         // Test Init
 
         localStorage.setItem(this.clean_form_id, JSON.stringify(this.form));
@@ -521,11 +521,10 @@ class form_formation {
 
         if (localStorage.getItem(this.form_id) != null){
             data = JSON.parse(localStorage.getItem(this.form_id));
-            data.preview = "Hello World";
+            // data.preview = "Hello World";
         }
 
         let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
-
 
         let status = _.isEqual(data, clean_form) || data == null;
 
@@ -535,18 +534,46 @@ class form_formation {
             console.log("Empty Slot");
         }
 
-        console.log(data);
-        console.log(typeof(data));
+        // console.log(data);
+        // console.log(typeof(data));
 
         // Test
-        localStorage.removeItem(this.form_id);
-        console.log(localStorage.getItem(this.form_id));
+        // localStorage.removeItem(this.form_id);
+        // console.log(localStorage.getItem(this.form_id));
     }
 
     init(){
         this.init_form();
     }
 
+}
+
+class workers{
+    constructor(){
+        this.url = "https://ws.beagletech.org/api/";
+    }
+    
+    request(type, url, data = {}){
+        let result;
+
+        $.ajax({
+            type: type, // POST, GET
+            url: this.url + url,
+            data: data,
+            success: (resp) => {
+                // POST was successful - do something with the response
+                console.log('Server sent back: ' + resp);
+                result = resp;
+            },
+            error: (resp) => {
+                // Server error, e.g. 404, 500, error
+                console.log(resp.responseText);
+                result = resp;
+            }
+        });
+
+        return result;
+    }
 }
 
 // <-- ###### class ###### -->
@@ -627,6 +654,9 @@ function push_history(to_page, id){
     listener.init();
     history.pushState({id: "main-tab-home"}, `Page home`, `./?page=home`);
 
+    var worker = new workers();
+    let response = worker.request("GET", "main.min.js");
+    console.log(response);
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
