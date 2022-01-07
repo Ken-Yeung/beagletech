@@ -553,10 +553,10 @@ class workers{
         this.url = "https://ws.beagletech.org/api/";
     }
     
-    request(type, url, data = {}){
+    async request(type, url, data = {}){
         let result;
 
-        $.ajax({
+        await $.ajax({
             type: type, // POST, GET
             url: this.url + url,
             data: data,
@@ -656,7 +656,6 @@ function push_history(to_page, id){
 
     var worker = new workers();
     let result = worker.request("GET", "main.js");
-    console.log(result);
 
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
