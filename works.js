@@ -511,7 +511,7 @@ class form_formation {
     }
 
     init(){
-        init_form();
+        this.init_form();
     }
 
 }
