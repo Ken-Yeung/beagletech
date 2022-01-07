@@ -511,18 +511,23 @@ class form_formation {
     init_form(){ // Page Load
 
         // Test Init
-        localStorage.setItem(this.form_id, JSON.stringify(this.form));
+        // localStorage.setItem(this.form_id, JSON.stringify(this.form));
         // Test Init
 
         localStorage.setItem(this.clean_form_id, JSON.stringify(this.form));
         localStorage.setItem(this.clean_suggestion_id, JSON.stringify(this.suggestion));
 
-        let data = JSON.parse(localStorage.getItem(this.form_id));
+        let data = null;
+
+        if (localStorage.getItem(this.form_id) != null){
+            data = JSON.parse(localStorage.getItem(this.form_id));   
+        }
+
         let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
 
-        data.preview = "Hello World";
+        // data.preview = "Hello World";
 
-        let status = _.isEqual(data, clean_form);
+        let status = _.isEqual(data, clean_form) || data == null;
 
         if (!status){
             console.log("Record Found");
