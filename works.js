@@ -655,9 +655,10 @@ function push_history(to_page, id){
     history.pushState({id: "main-tab-home"}, `Page home`, `./?page=home`);
 
     var worker = new workers();
-    let result = await worker.request("GET", "main.js");
-    console.log(result);
-
+    let result = worker.request("GET", "main.js");
+    result.then((res) => {
+        console.log(res);
+    });
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
