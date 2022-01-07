@@ -499,7 +499,7 @@ class form_formation {
     init_form(){ // Page Load
 
         // Test Init
-        localStorage.setItem("form", this.form);
+        localStorage.setItem("form", JSON.stringify(this.form));
         // Test Init
 
         let data = JSON.parse(localStorage.getItem('form'));
@@ -507,7 +507,9 @@ class form_formation {
         console.log(data);
         console.log(typeof(data));
 
+        // Test
         localStorage.removeItem("form");
+        console.log(data);
     }
 
     init(){
