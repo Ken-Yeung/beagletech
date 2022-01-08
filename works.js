@@ -564,7 +564,7 @@ class workers{
         await $.ajax({
             type: type, // POST, GET
             url: this.url + url,
-            data: data,
+            // data: data,
             success: (resp) => {
                 // POST was successful - do something with the response
                 console.log('Server sent back: ' + resp);
