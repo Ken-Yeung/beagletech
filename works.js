@@ -340,6 +340,11 @@ class event_listen {
         }
         switch(tab_id){
             case "1":
+                this.set_img(icon_id.id[0], icon_id.empty);
+                this.set_img(icon_id.id[1], icon_id.empty);
+                this.set_img(icon_id.id[2], icon_id.empty);
+                this.set_img(icon_id.id[3], icon_id.empty);
+
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.remove("green");
@@ -355,6 +360,10 @@ class event_listen {
 
             case "2":
                 this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.empty);
+                this.set_img(icon_id.id[2], icon_id.empty);
+                this.set_img(icon_id.id[3], icon_id.empty);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
                 this.mini_box3_control.remove("green");
@@ -369,6 +378,11 @@ class event_listen {
                 break;
 
             case "3":
+                this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.tick);
+                this.set_img(icon_id.id[2], icon_id.empty);
+                this.set_img(icon_id.id[3], icon_id.empty);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
                 this.mini_box3_control.remove("green");
@@ -384,6 +398,11 @@ class event_listen {
                 break;
 
             case "4":
+                this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.tick);
+                this.set_img(icon_id.id[2], icon_id.tick);
+                this.set_img(icon_id.id[3], icon_id.empty);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
                 this.mini_box3_control.remove("green");
@@ -399,6 +418,11 @@ class event_listen {
                 break;
 
             case "preview":
+                this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.tick);
+                this.set_img(icon_id.id[2], icon_id.tick);
+                this.set_img(icon_id.id[3], icon_id.tick);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.add("green");
@@ -412,6 +436,11 @@ class event_listen {
                 break;
             
             case "payment":
+                this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.tick);
+                this.set_img(icon_id.id[2], icon_id.tick);
+                this.set_img(icon_id.id[3], icon_id.tick);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.add("green");
@@ -425,6 +454,11 @@ class event_listen {
                 break;
             
             case "home":
+                this.set_img(icon_id.id[0], icon_id.empty);
+                this.set_img(icon_id.id[1], icon_id.empty);
+                this.set_img(icon_id.id[2], icon_id.empty);
+                this.set_img(icon_id.id[3], icon_id.empty);
+
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
                 this.mini_box3_control.remove("green");
