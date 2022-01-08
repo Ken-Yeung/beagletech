@@ -477,6 +477,7 @@ class form_formation {
     constructor(){
 
         this.topic = {
+            "tpye": "topic",
             "subject": "",
             "impact": null, // boolean
             "object": "",
@@ -484,6 +485,7 @@ class form_formation {
 
         this.form = {
             // "token": "",
+            "type": "form",
             "topic": this.topic,
             "args": [
                 "",
@@ -494,7 +496,7 @@ class form_formation {
             "body": ""
         };
 
-        this.suggestion = {
+        this.suggestion = { // For return
             "arg1": [],
             "arg2": [],
             "arg3": []
@@ -562,22 +564,13 @@ class workers{
     async request(type, url, data = {}){
         let result;
 
-        // switch(type){
-        //     case "POST":
-        //         await $.post(url, { json_string:JSON.stringify(data) });
-        //         break;
-            
-        //     case "GET":
-        //         break;
-        // }
-
         await $.ajax({
             type: type, // POST, GET
             url: this.url + url,
             data: JSON.stringify(data),
             success: (resp) => {
                 // POST was successful - do something with the response
-                console.log('Server sent back: ' + resp);
+                // console.log('Server sent back: ' + resp);
                 result = resp;
             },
             error: (resp) => {
