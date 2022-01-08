@@ -477,26 +477,35 @@ class form_formation {
     constructor(){
 
         this.topic = {
-            "tpye": "topic",
+            "tpye": "topic", // Constant
             "subject": "",
             "impact": null, // boolean
             "object": "",
         };
 
+        this.preview = {
+            // "id": 0,
+            "body": ""
+        }
+
         this.form = {
-            // "token": "",
-            "type": "form",
+            "token": "0",
+            "type": "form", // Constant
             "topic": this.topic,
             "args": [
                 "",
                 "",
                 ""
             ],
-            "preview": "",
             "body": ""
         };
 
         this.suggestion = { // For return
+            "topic": {
+                "subject": "",
+                "impact": null,
+                "object": ""
+            },
             "arg1": [],
             "arg2": [],
             "arg3": []
