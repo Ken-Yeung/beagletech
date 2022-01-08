@@ -105,14 +105,6 @@ class event_listen {
         this.mini_box1_control = new class_worker("mini_box_1");
         this.mini_box2_control = new class_worker("mini_box_2");
         this.mini_box3_control = new class_worker("mini_box_3");
-
-        this.popstate_id_list = [
-            "main-tab-1", 
-            "main-tab-2", 
-            "main-tab-3", 
-            "main-tab-4", 
-            "main-tab-preview"
-        ]
     }
 
     all_forms(){
@@ -128,6 +120,20 @@ class event_listen {
         }
     }
 
+    next_page(data){
+        let id = data.toString();
+        push_history(id, `main-tab-${id}`);
+        if (desktop_status) { // Desktop Mode
+
+            this.right_card_animated_controller(id);
+
+        } else { // Mobile Mode
+            let finished_perc = (40 - 100).toString();
+            this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+        }
+        document.getElementById(`main-tab-2`).click();
+    }
+
     pages(page){
         const err_msg = "No such page here.";
         const desktop_status = check_desktop_mode();
@@ -137,15 +143,11 @@ class event_listen {
                 // Start Next page
                 push_history("2", "main-tab-2");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.add("green");
-                    this.mini_box3_control.remove("green");
 
-                    // let poc_1 = {tab: 1, pos: 1};
-                    // this.main_tab_process(false, poc_1, 0);
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.add("green");
+                    // this.mini_box3_control.remove("green");
 
-                    // let poc_2 = {tab:1, pos: 2};
-                    // this.main_tab_process(true, poc_2, 333);
                     this.right_card_animated_controller("2");
 
                 } else { // Mobile Mode
@@ -160,9 +162,9 @@ class event_listen {
                 // Start Next page
                 push_history("3", "main-tab-3");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.add("green");
-                    this.mini_box3_control.remove("green");
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.add("green");
+                    // this.mini_box3_control.remove("green");
 
                     this.right_card_animated_controller("3");
 
@@ -178,9 +180,9 @@ class event_listen {
                 // Start Next page
                 push_history("4", "main-tab-4");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.add("green");
-                    this.mini_box3_control.remove("green");
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.add("green");
+                    // this.mini_box3_control.remove("green");
 
                     this.right_card_animated_controller("4");
 
@@ -196,9 +198,9 @@ class event_listen {
                 // Start Next page
                 push_history("preview", "main-tab-preview");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.remove("green");
-                    this.mini_box3_control.add("green");
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.remove("green");
+                    // this.mini_box3_control.add("green");
 
                     // let poc_4 = {tab:2, pos: 4};
                     // this.main_tab_process(true, poc_4, 0);
@@ -216,9 +218,9 @@ class event_listen {
                 // Start Next page
                 push_history("payment", "main-tab-payment");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.remove("green");
-                    this.mini_box3_control.add("green");
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.remove("green");
+                    // this.mini_box3_control.add("green");
 
                     this.right_card_animated_controller("payment");
                 } else { // Mobile Mode
@@ -248,9 +250,9 @@ class event_listen {
                 // Start Next page
                 push_history("1", "main-tab-1");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.add("green");
-                    this.mini_box2_control.remove("green");
-                    this.mini_box3_control.remove("green");
+                    // this.mini_box1_control.add("green");
+                    // this.mini_box2_control.remove("green");
+                    // this.mini_box3_control.remove("green");
 
                     this.right_card_animated_controller("1");
                 } else { // Mobile Mode
@@ -272,9 +274,9 @@ class event_listen {
             push_history("home", "main-tab-home");
             document.getElementById("main-tab-home").click();
             if (check_desktop_mode()){
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.remove("green");
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.remove("green");
 
                 this.right_card_animated_controller("home");
             } else {
@@ -344,6 +346,10 @@ class event_listen {
     right_card_animated_controller(tab_id){
         switch(tab_id){
             case "1":
+                this.mini_box1_control.add("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.remove("green");
+
                 this.main_tab_process(true, {tab: 1, pos: 1}, 333);
                 this.main_tab_process(false, {tab: 1, pos: 2}, 0);
 
@@ -354,6 +360,10 @@ class event_listen {
                 break;
 
             case "2":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.add("green");
+                this.mini_box3_control.remove("green");
+
                 this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                 this.main_tab_process(true, {tab: 1, pos: 2}, 333);
                 this.main_tab_process(true, {tab: 2, pos: 1}, 333);
@@ -364,6 +374,10 @@ class event_listen {
                 break;
 
             case "3":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.add("green");
+                this.mini_box3_control.remove("green");
+
                 this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                 this.main_tab_process(true, {tab: 1, pos: 2}, 333);
 
@@ -375,6 +389,10 @@ class event_listen {
                 break;
 
             case "4":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.add("green");
+                this.mini_box3_control.remove("green");
+
                 this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                 this.main_tab_process(true, {tab: 1, pos: 2}, 333);
                 this.main_tab_process(false, {tab: 2, pos: 1}, 0);
@@ -386,6 +404,10 @@ class event_listen {
                 break;
 
             case "preview":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.add("green");
+
                 this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                 this.main_tab_process(true, {tab: 1, pos: 2}, 333);
                 this.main_tab_process(false, {tab: 2, pos: 1}, 0);
@@ -395,6 +417,10 @@ class event_listen {
                 break;
             
             case "payment":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.add("green");
+
                 this.main_tab_process(false, {tab: 1, pos: 1}, 0);
                 this.main_tab_process(true, {tab: 1, pos: 2}, 333);
                 this.main_tab_process(false, {tab: 2, pos: 1}, 0);
@@ -404,6 +430,10 @@ class event_listen {
                 break;
             
             case "home":
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.remove("green");
+
                 this.main_tab_process(true, {tab: 1, pos: 1}, 333);
                 this.main_tab_process(false, {tab: 1, pos: 2}, 0);
                 this.main_tab_process(true, {tab: 2, pos: 1}, 333);
@@ -431,16 +461,18 @@ class event_listen {
 
             document.getElementById("main-tab-1").click();
             if (check_desktop_mode()){
-                this.mini_box1_control.add("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.remove("green");
+                // this.mini_box1_control.add("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.remove("green");
 
-                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                this.right_card_animated_controller("1");
+
+                // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
             }
         });
 
@@ -453,9 +485,9 @@ class event_listen {
                 if (check_desktop_mode()) { // Desktop Mode
                     this.btn_filter(e.state.id);
                     // document.getElementById(e.state.id).click();
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.remove("green");
-                    this.mini_box3_control.remove("green");
+                    // this.mini_box1_control.remove("green");
+                    // this.mini_box2_control.remove("green");
+                    // this.mini_box3_control.remove("green");
                 } else { // Mobile Mode
                     document.getElementById(e.state.id).click();
                     this.progress_bar.style.transform = "translateX(-100%)";
@@ -515,9 +547,23 @@ class form_formation {
         this.clean_form_id = "clean_form";
         this.clean_suggestion_id = "clean_suggestion";
 
+        this.worker = new workers();
+
     }
 
     // get_token(){}
+
+    request_for_args(){ // Get and save Topics
+
+    }
+
+    set_args(pos){
+
+    }
+
+    request_for_final(){ //including preview
+
+    }
 
     init_form(){ // Page Load
 
