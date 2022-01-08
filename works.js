@@ -217,9 +217,9 @@ class event_listen {
                 // Start Next page
                 push_history("final", "main-tab-final");
                 if (desktop_status) { // Desktop Mode
-                    this.mini_box1_control.remove("green");
-                    this.mini_box2_control.remove("green");
-                    this.mini_box3_control.add("green");
+                    
+                    this.right_card_animated_controller("final");
+
                 } else { // Mobile Mode
                     let finished_perc = (100 - 100).toString();
                     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
@@ -334,6 +334,7 @@ class event_listen {
                 "pcard-2-img-1",
                 "pcard-2-img-2",
                 "pcard-2-img-3",
+                "pcard-3-img-paid"
             ],
             "tick": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b7966f61345be4_Success.svg",
             "empty": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b79651cf345bee_SINGLE%20ADD.svg"
@@ -344,6 +345,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.empty);
                 this.set_img(icon_id.id[2], icon_id.empty);
                 this.set_img(icon_id.id[3], icon_id.empty);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.add("green");
                 this.mini_box2_control.remove("green");
@@ -363,6 +365,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.empty);
                 this.set_img(icon_id.id[2], icon_id.empty);
                 this.set_img(icon_id.id[3], icon_id.empty);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
@@ -382,6 +385,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.tick);
                 this.set_img(icon_id.id[2], icon_id.empty);
                 this.set_img(icon_id.id[3], icon_id.empty);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
@@ -402,6 +406,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.tick);
                 this.set_img(icon_id.id[2], icon_id.tick);
                 this.set_img(icon_id.id[3], icon_id.empty);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.add("green");
@@ -422,6 +427,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.tick);
                 this.set_img(icon_id.id[2], icon_id.tick);
                 this.set_img(icon_id.id[3], icon_id.tick);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
@@ -440,6 +446,7 @@ class event_listen {
                 this.set_img(icon_id.id[1], icon_id.tick);
                 this.set_img(icon_id.id[2], icon_id.tick);
                 this.set_img(icon_id.id[3], icon_id.tick);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
@@ -453,11 +460,32 @@ class event_listen {
                 this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 break;
             
+            case "final":
+                this.set_img(icon_id.id[0], icon_id.tick);
+                this.set_img(icon_id.id[1], icon_id.tick);
+                this.set_img(icon_id.id[2], icon_id.tick);
+                this.set_img(icon_id.id[3], icon_id.tick);
+                this.set_img(icon_id.id[4], icon_id.tick);
+
+                this.mini_box1_control.remove("green");
+                this.mini_box2_control.remove("green");
+                this.mini_box3_control.add("green");
+
+                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                
+                break;
+
             case "home":
                 this.set_img(icon_id.id[0], icon_id.empty);
                 this.set_img(icon_id.id[1], icon_id.empty);
                 this.set_img(icon_id.id[2], icon_id.empty);
                 this.set_img(icon_id.id[3], icon_id.empty);
+                this.set_img(icon_id.id[4], icon_id.empty);
 
                 this.mini_box1_control.remove("green");
                 this.mini_box2_control.remove("green");
