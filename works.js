@@ -539,7 +539,7 @@ class form_formation {
 
         // Test
         var worker = new workers();
-        let result = worker.request("POST", "test", this.topic);
+        let result = worker.request("POST", "test", this.form);
         result.then((res) => {
             console.log(`Test result:`);
             console.log(res);
