@@ -543,7 +543,6 @@ class form_formation {
         result.then((res) => {
             console.log(`Test result:`);
             console.log(res);
-            console.log(JSON.parse(res));
         });
         // localStorage.removeItem(this.form_id);
         // console.log(localStorage.getItem(this.form_id));
@@ -583,7 +582,7 @@ class workers{
             },
             error: (resp) => {
                 // Server error, e.g. 404, 500, error
-                console.log(resp.responseText);
+                console.log(resp);
                 result = resp;
             }
         });
