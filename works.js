@@ -324,8 +324,6 @@ class event_listen {
         let status = img.getAttribute("src") != url;
         if (status){
             img.setAttribute("src", url.toString());
-        } else {
-            console.log("Same IMG Found");
         }
     }
 
