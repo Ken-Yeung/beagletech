@@ -538,6 +538,11 @@ class form_formation {
         // console.log(typeof(data));
 
         // Test
+        var worker = new workers();
+        let result = worker.request("POST", "test", clean_form);
+        result.then((res) => {
+            console.log(`Test result: ${res}`);
+        });
         // localStorage.removeItem(this.form_id);
         // console.log(localStorage.getItem(this.form_id));
     }
@@ -550,7 +555,7 @@ class form_formation {
 
 class workers{
     constructor(){
-        this.url = "https://ws.beagletech.org/api/";
+        this.url = "https://ws.beagletech.org/";
     }
     
     async request(type, url, data = {}){
@@ -654,11 +659,7 @@ function push_history(to_page, id){
     listener.init();
     history.pushState({id: "main-tab-home"}, `Page home`, `./?page=home`);
 
-    var worker = new workers();
-    let result = worker.request("GET", "main.js");
-    result.then((res) => {
-        alert(`Test result: ${res}`);
-    });
+
     // console.log(check_desktop_mode());
     // console.log("Hello World.");
     // tool_tips(document.getElementById("main-home-tutorial"), "Go To Tutorial");
