@@ -561,10 +561,19 @@ class workers{
     async request(type, url, data = {}){
         let result;
 
+        // switch(type){
+        //     case "POST":
+        //         await $.post(url, { json_string:JSON.stringify(data) });
+        //         break;
+            
+        //     case "GET":
+        //         break;
+        // }
+
         await $.ajax({
             type: type, // POST, GET
             url: this.url + url,
-            // data: data,
+            data: JSON.stringify(data),
             success: (resp) => {
                 // POST was successful - do something with the response
                 console.log('Server sent back: ' + resp);
