@@ -586,7 +586,7 @@ class workers{
             }
         });
 
-        return result;
+        return JSON.parse(result);
     }
 }
 
