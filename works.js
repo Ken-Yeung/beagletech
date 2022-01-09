@@ -326,8 +326,8 @@ class event_listen {
             img.setAttribute("src", url.toString());
         }
     }
-
-    right_card_animated_controller(tab_id){
+    
+    animated_actions(details){
         let icon_id = {
             "id": [
                 "pcard-1-img-1",
@@ -336,172 +336,328 @@ class event_listen {
                 "pcard-2-img-3",
                 "pcard-3-img-paid"
             ],
-            "tick": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b7966f61345be4_Success.svg",
-            "empty": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b79651cf345bee_SINGLE%20ADD.svg"
+            "status": [
+                "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b79651cf345bee_SINGLE%20ADD.svg",
+                "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b7966f61345be4_Success.svg"
+            ]
+        };
+
+        this.set_img(icon_id.id[0], icon_id.status[details.icon[0]]);
+        this.set_img(icon_id.id[1], icon_id.status[details.icon[1]]);
+        this.set_img(icon_id.id[2], icon_id.status[details.icon[2]]);
+        this.set_img(icon_id.id[3], icon_id.status[details.icon[3]]);
+        this.set_img(icon_id.id[4], icon_id.status[details.icon[4]]);
+
+        if (details.case == "1"){
+            this.mini_box1_control.add("green");
+            this.mini_box2_control.remove("green");
+            this.mini_box3_control.remove("green");
+        } else if (details.case == "2" || details.case == "3" || details.case == "4") {
+            this.mini_box1_control.remove("green");
+            this.mini_box2_control.add("green");
+            this.mini_box3_control.remove("green");
+        } else if (details.case == "preview" || details.case == "payment" || details.case == "final") {
+            this.mini_box1_control.remove("green");
+            this.mini_box2_control.remove("green");
+            this.mini_box3_control.add("green");
+        } else if (details.case == "home"){
+            this.mini_box1_control.remove("green");
+            this.mini_box2_control.remove("green");
+            this.mini_box3_control.remove("green");
         }
+        
+        for (let i = 0; i < details.process.length; i++){
+            this.main_tab_process(details.process[i][0], {tab: details.process[i][1], pos: details.process[i][2]}, details.process[i][3]);
+        }
+
+        // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+        // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+
+        // this.main_tab_process(true, {tab: 2, pos: 1}, 0);
+        // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+        // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+        // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+    }
+
+    right_card_animated_controller(tab_id){
+        // let icon_id = {
+        //     "id": [
+        //         "pcard-1-img-1",
+        //         "pcard-2-img-1",
+        //         "pcard-2-img-2",
+        //         "pcard-2-img-3",
+        //         "pcard-3-img-paid"
+        //     ],
+        //     "tick": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b7966f61345be4_Success.svg",
+        //     "empty": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b79651cf345bee_SINGLE%20ADD.svg"
+        // }
+
+        let details = {
+            "icon": [
+                0,
+                0,
+                0,
+                0,
+                0
+            ], //Total of 5
+            "case":"0",
+            "process": [
+                [true, 1, 1, 0],
+                [true, 1, 2, 0],
+                [true, 2, 1, 0],
+                [true, 2, 2, 0],
+                [true, 2, 3, 0],
+                [true, 2, 4, 0]
+            ]
+        };
+
         switch(tab_id){
             case "1":
-                this.set_img(icon_id.id[0], icon_id.empty);
-                this.set_img(icon_id.id[1], icon_id.empty);
-                this.set_img(icon_id.id[2], icon_id.empty);
-                this.set_img(icon_id.id[3], icon_id.empty);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.add("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.remove("green");
+                details.process[0][3] = 333;
+                details.process[1][0] = false;
+                details.process[3][0] = false;
+                details.process[4][0] = false;
+                details.process[5][0] = false;
 
-                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                // this.set_img(icon_id.id[0], icon_id.empty);
+                // this.set_img(icon_id.id[1], icon_id.empty);
+                // this.set_img(icon_id.id[2], icon_id.empty);
+                // this.set_img(icon_id.id[3], icon_id.empty);
+                // this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.main_tab_process(true, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                // this.mini_box1_control.add("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.remove("green");
+
+                // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+
+                // this.main_tab_process(true, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "2":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.empty);
-                this.set_img(icon_id.id[2], icon_id.empty);
-                this.set_img(icon_id.id[3], icon_id.empty);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.add("green");
-                this.mini_box3_control.remove("green");
+                details.icon[0] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][3] = 333;
+                details.process[3][0] = false;
+                details.process[4][0] = false;
+                details.process[5][0] = false;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.empty);
+                // this.set_img(icon_id.id[2], icon_id.empty);
+                // this.set_img(icon_id.id[3], icon_id.empty);
+                // this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.add("green");
+                // this.mini_box3_control.remove("green");
+
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+
+                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "3":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.tick);
-                this.set_img(icon_id.id[2], icon_id.empty);
-                this.set_img(icon_id.id[3], icon_id.empty);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.add("green");
-                this.mini_box3_control.remove("green");
+                details.icon[0] = 1;
+                details.icon[1] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][0] = false;
+                details.process[3][3] = 333;
+                details.process[4][0] = false;
+                details.process[5][0] = false;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.tick);
+                // this.set_img(icon_id.id[2], icon_id.empty);
+                // this.set_img(icon_id.id[3], icon_id.empty);
+                // this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.add("green");
+                // this.mini_box3_control.remove("green");
 
-                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+
+                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+
+                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "4":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.tick);
-                this.set_img(icon_id.id[2], icon_id.tick);
-                this.set_img(icon_id.id[3], icon_id.empty);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.add("green");
-                this.mini_box3_control.remove("green");
+                details.icon[0] = 1;
+                details.icon[1] = 1;
+                details.icon[2] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][0] = false;
+                details.process[3][3] = 333;
+                details.process[4][3] = 333;
+                details.process[5][0] = false;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.tick);
+                // this.set_img(icon_id.id[2], icon_id.tick);
+                // this.set_img(icon_id.id[3], icon_id.empty);
+                // this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.add("green");
+                // this.mini_box3_control.remove("green");
 
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+
+                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "preview":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.tick);
-                this.set_img(icon_id.id[2], icon_id.tick);
-                this.set_img(icon_id.id[3], icon_id.tick);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.add("green");
+                details.icon[0] = 1;
+                details.icon[1] = 1;
+                details.icon[2] = 1;
+                details.icon[3] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][0] = false;
+                details.process[3][3] = 333;
+                details.process[4][3] = 333;
+                details.process[5][3] = 333;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.tick);
+                // this.set_img(icon_id.id[2], icon_id.tick);
+                // this.set_img(icon_id.id[3], icon_id.tick);
+                // this.set_img(icon_id.id[4], icon_id.empty);
+
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.add("green");
+
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 break;
             
             case "payment":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.tick);
-                this.set_img(icon_id.id[2], icon_id.tick);
-                this.set_img(icon_id.id[3], icon_id.tick);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.add("green");
+                details.icon[0] = 1;
+                details.icon[1] = 1;
+                details.icon[2] = 1;
+                details.icon[3] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][0] = false;
+                details.process[3][3] = 333;
+                details.process[4][3] = 333;
+                details.process[5][3] = 333;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.tick);
+                // this.set_img(icon_id.id[2], icon_id.tick);
+                // this.set_img(icon_id.id[3], icon_id.tick);
+                // this.set_img(icon_id.id[4], icon_id.empty);
+
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.add("green");
+
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 break;
             
             case "final":
-                this.set_img(icon_id.id[0], icon_id.tick);
-                this.set_img(icon_id.id[1], icon_id.tick);
-                this.set_img(icon_id.id[2], icon_id.tick);
-                this.set_img(icon_id.id[3], icon_id.tick);
-                this.set_img(icon_id.id[4], icon_id.tick);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.add("green");
+                details.icon[0] = 1;
+                details.icon[1] = 1;
+                details.icon[2] = 1;
+                details.icon[3] = 1;
+                details.icon[4] = 1;
+                details.process[0][0] = false;
+                details.process[1][3] = 333;
+                details.process[2][0] = false;
+                details.process[3][3] = 333;
+                details.process[4][3] = 333;
+                details.process[5][3] = 333;
 
-                this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                this.main_tab_process(true, {tab: 2, pos: 4}, 333);
+                // this.set_img(icon_id.id[0], icon_id.tick);
+                // this.set_img(icon_id.id[1], icon_id.tick);
+                // this.set_img(icon_id.id[2], icon_id.tick);
+                // this.set_img(icon_id.id[3], icon_id.tick);
+                // this.set_img(icon_id.id[4], icon_id.tick);
+
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.add("green");
+
+                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
+                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 
                 break;
 
             case "home":
-                this.set_img(icon_id.id[0], icon_id.empty);
-                this.set_img(icon_id.id[1], icon_id.empty);
-                this.set_img(icon_id.id[2], icon_id.empty);
-                this.set_img(icon_id.id[3], icon_id.empty);
-                this.set_img(icon_id.id[4], icon_id.empty);
 
-                this.mini_box1_control.remove("green");
-                this.mini_box2_control.remove("green");
-                this.mini_box3_control.remove("green");
+                details.process[0][3] = 333;
+                details.process[1][0] = false;
+                details.process[2][3] = 333;
+                details.process[3][0] = false;
+                details.process[4][0] = false;
+                details.process[5][0] = false;
 
-                this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-                this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                this.main_tab_process(false, {tab: 2, pos: 4}, 0);
+                // this.set_img(icon_id.id[0], icon_id.empty);
+                // this.set_img(icon_id.id[1], icon_id.empty);
+                // this.set_img(icon_id.id[2], icon_id.empty);
+                // this.set_img(icon_id.id[3], icon_id.empty);
+                // this.set_img(icon_id.id[4], icon_id.empty);
+
+                // this.mini_box1_control.remove("green");
+                // this.mini_box2_control.remove("green");
+                // this.mini_box3_control.remove("green");
+
+                // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
+                // this.main_tab_process(true, {tab: 2, pos: 1}, 333);
+                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
+                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             default:
                 break;
         }
+        details.case = tab_id;
+        this.animated_actions(details);
     }
 
     btn_filter(id){ // for popstate
