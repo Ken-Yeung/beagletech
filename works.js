@@ -369,28 +369,9 @@ class event_listen {
         for (let i = 0; i < details.process.length; i++){
             this.main_tab_process(details.process[i][0], {tab: details.process[i][1], pos: details.process[i][2]}, details.process[i][3]);
         }
-
-        // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-        // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-
-        // this.main_tab_process(true, {tab: 2, pos: 1}, 0);
-        // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-        // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-        // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
     }
 
     right_card_animated_controller(tab_id){
-        // let icon_id = {
-        //     "id": [
-        //         "pcard-1-img-1",
-        //         "pcard-2-img-1",
-        //         "pcard-2-img-2",
-        //         "pcard-2-img-3",
-        //         "pcard-3-img-paid"
-        //     ],
-        //     "tick": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b7966f61345be4_Success.svg",
-        //     "empty": "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/617e49af51b79651cf345bee_SINGLE%20ADD.svg"
-        // }
 
         let details = {
             "icon": [
@@ -419,24 +400,6 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
-
-                // this.set_img(icon_id.id[0], icon_id.empty);
-                // this.set_img(icon_id.id[1], icon_id.empty);
-                // this.set_img(icon_id.id[2], icon_id.empty);
-                // this.set_img(icon_id.id[3], icon_id.empty);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.add("green");
-                // this.mini_box2_control.remove("green");
-                // this.mini_box3_control.remove("green");
-
-                // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-
-                // this.main_tab_process(true, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "2":
@@ -448,24 +411,6 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.empty);
-                // this.set_img(icon_id.id[2], icon_id.empty);
-                // this.set_img(icon_id.id[3], icon_id.empty);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.add("green");
-                // this.mini_box3_control.remove("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-
-                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "3":
@@ -478,25 +423,6 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.tick);
-                // this.set_img(icon_id.id[2], icon_id.empty);
-                // this.set_img(icon_id.id[3], icon_id.empty);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.add("green");
-                // this.mini_box3_control.remove("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-
-                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-
-                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "4":
@@ -510,25 +436,6 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][0] = false;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.tick);
-                // this.set_img(icon_id.id[2], icon_id.tick);
-                // this.set_img(icon_id.id[3], icon_id.empty);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.add("green");
-                // this.mini_box3_control.remove("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-
-                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-
-                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             case "preview":
@@ -543,23 +450,6 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.tick);
-                // this.set_img(icon_id.id[2], icon_id.tick);
-                // this.set_img(icon_id.id[3], icon_id.tick);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.remove("green");
-                // this.mini_box3_control.add("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 break;
             
             case "payment":
@@ -574,23 +464,6 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.tick);
-                // this.set_img(icon_id.id[2], icon_id.tick);
-                // this.set_img(icon_id.id[3], icon_id.tick);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.remove("green");
-                // this.mini_box3_control.add("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 break;
             
             case "final":
@@ -606,23 +479,6 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
-
-                // this.set_img(icon_id.id[0], icon_id.tick);
-                // this.set_img(icon_id.id[1], icon_id.tick);
-                // this.set_img(icon_id.id[2], icon_id.tick);
-                // this.set_img(icon_id.id[3], icon_id.tick);
-                // this.set_img(icon_id.id[4], icon_id.tick);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.remove("green");
-                // this.mini_box3_control.add("green");
-
-                // this.main_tab_process(false, {tab: 1, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 1, pos: 2}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 1}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 2}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 3}, 333);
-                // this.main_tab_process(true, {tab: 2, pos: 4}, 333);
                 
                 break;
 
@@ -634,23 +490,6 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
-
-                // this.set_img(icon_id.id[0], icon_id.empty);
-                // this.set_img(icon_id.id[1], icon_id.empty);
-                // this.set_img(icon_id.id[2], icon_id.empty);
-                // this.set_img(icon_id.id[3], icon_id.empty);
-                // this.set_img(icon_id.id[4], icon_id.empty);
-
-                // this.mini_box1_control.remove("green");
-                // this.mini_box2_control.remove("green");
-                // this.mini_box3_control.remove("green");
-
-                // this.main_tab_process(true, {tab: 1, pos: 1}, 333);
-                // this.main_tab_process(false, {tab: 1, pos: 2}, 0);
-                // this.main_tab_process(true, {tab: 2, pos: 1}, 333);
-                // this.main_tab_process(false, {tab: 2, pos: 2}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 3}, 0);
-                // this.main_tab_process(false, {tab: 2, pos: 4}, 0);
                 break;
 
             default:
