@@ -342,15 +342,9 @@ class event_listen {
             ]
         };
 
-        // this.set_img(icon_id.id[0], icon_id.status[details.icon[0]]);
-        // this.set_img(icon_id.id[1], icon_id.status[details.icon[1]]);
-        // this.set_img(icon_id.id[2], icon_id.status[details.icon[2]]);
-        // this.set_img(icon_id.id[3], icon_id.status[details.icon[3]]);
-        // this.set_img(icon_id.id[4], icon_id.status[details.icon[4]]);
         for (let i = 0; i < icon_id.id.length; i++){
             this.set_img(icon_id.id[i], icon_id.status[details.icon[i]]);
         }
-
 
         if (details.case == "1"){
             this.mini_box1_control.add("green");
@@ -499,6 +493,7 @@ class event_listen {
             default:
                 break;
         }
+        
         details.case = tab_id;
         this.animated_actions(details);
     }
