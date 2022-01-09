@@ -395,6 +395,7 @@ class event_listen {
 
                 details.process[0][3] = 333;
                 details.process[1][0] = false;
+                details.process[2][3] = 333;
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
@@ -493,7 +494,7 @@ class event_listen {
             default:
                 break;
         }
-        
+
         details.case = tab_id;
         this.animated_actions(details);
     }
