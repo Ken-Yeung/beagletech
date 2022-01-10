@@ -576,6 +576,8 @@ class form_formation {
                 document.getElementById("btn-start").click();
                 console.log("Found Topic only");
             }
+            console.log(this.form.topic);
+            console.log(clean_form.topic);
             console.log("Record Found");
         } else {
             console.log("Empty Slot");
@@ -588,7 +590,7 @@ class form_formation {
         //     console.log(`Test result:`);
         //     console.log(res);
         // });
-        localStorage.removeItem(this.form_id);
+        // localStorage.removeItem(this.form_id);
         // console.log(localStorage.getItem(this.form_id));
     }
 
