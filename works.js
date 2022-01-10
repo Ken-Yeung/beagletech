@@ -105,6 +105,8 @@ class event_listen {
         this.mini_box1_control = new class_worker("mini_box_1");
         this.mini_box2_control = new class_worker("mini_box_2");
         this.mini_box3_control = new class_worker("mini_box_3");
+
+        this.form_worker = new form_formation();
     }
 
     all_forms(){
@@ -138,119 +140,47 @@ class event_listen {
         const err_msg = "No such page here.";
         switch (page) {
             case "step1": // starting
+                let subject = document.getElementById("ts");
+                let impact = document.getElementById("impact");
+                let object = document.getElementById("to");
+
+                this.form_worker.topic.subject = subject.value;
+                this.form_worker.topic.impact = impact.value;
+                this.form_worker.topic.object = object.value;
+
+                console.log(this.form_worker.topic);
 
                 this.next_page("2", 40);
-
-                // // Start Next page
-                // push_history("2", "main-tab-2");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("2");
-
-                // } else { // Mobile Mode
-                //     let finished_perc = (40 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById(`main-tab-2`).click();
                 break;
 
             case "step2":
 
                 this.next_page("3", 55);
-
-                // Start Next page
-                // push_history("3", "main-tab-3");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("3");
-
-                // } else { // Mobile Mode
-                //     let finished_perc = (55 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById(`main-tab-3`).click();
                 break;
 
             case "step3":
 
                 this.next_page("4", 70);
-
-                // Start Next page
-                // push_history("4", "main-tab-4");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("4");
-
-                // } else { // Mobile Mode
-                //     let finished_perc = (70 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById(`main-tab-4`).click();
                 break;
 
             case "step4":
 
                 this.next_page("preview", 75);
-
-                // Start Next page
-                // push_history("preview", "main-tab-preview");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("preview");
-
-                // } else { // Mobile Mode
-                //     let finished_perc = (75 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById("main-tab-preview").click();
                 break;
 
             case "step5": // preview
 
                 this.next_page("payment", 90);
-
-                // Start Next page
-                // push_history("payment", "main-tab-payment");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("payment");
-                // } else { // Mobile Mode
-                //     let finished_perc = (90 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById(`main-tab-payment`).click();
                 break;
 
             case "step6": // payment
                 
                 this.next_page("final", 100);
-
-                // Start Next page
-                // push_history("final", "main-tab-final");
-                // if (desktop_status) { // Desktop Mode
-                    
-                //     this.right_card_animated_controller("final");
-
-                // } else { // Mobile Mode
-                //     let finished_perc = (100 - 100).toString();
-                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                // }
-                // document.getElementById(`main-tab-final`).click();
                 break;
 
             case "step7": // final
 
                 this.next_page("1", 0);
-
-                // Start Next page
-                // push_history("1", "main-tab-1");
-                // if (desktop_status) { // Desktop Mode
-
-                //     this.right_card_animated_controller("1");
-                // } else { // Mobile Mode
-                //     this.progress_bar.style.transform = "translateX(-100%)";
-                // }
-                // document.getElementById(`main-tab-1`).click();
                 break;
 
             default:
@@ -549,8 +479,7 @@ class event_listen {
             }
         });
 
-        let form = new form_formation();
-        form.init();
+        this.form_worker.init();
 
     }
 
@@ -647,12 +576,12 @@ class form_formation {
         // console.log(typeof(data));
 
         // Test
-        var worker = new workers();
-        let result = worker.request("POST", "test", this.form);
-        result.then((res) => {
-            console.log(`Test result:`);
-            console.log(res);
-        });
+        // var worker = new workers();
+        // let result = worker.request("POST", "test", this.form);
+        // result.then((res) => {
+        //     console.log(`Test result:`);
+        //     console.log(res);
+        // });
         // localStorage.removeItem(this.form_id);
         // console.log(localStorage.getItem(this.form_id));
     }
