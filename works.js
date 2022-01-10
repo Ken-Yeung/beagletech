@@ -144,13 +144,18 @@ class event_listen {
                 let impact = document.getElementById("impact");
                 let object = document.getElementById("to");
 
-                this.form_worker.topic.subject = subject.value;
-                this.form_worker.topic.impact = impact.value;
-                this.form_worker.topic.object = object.value;
+                let status = subject.value != "" && object.value != "";
+                if (status){
+                    this.form_worker.topic.subject = subject.value;
+                    this.form_worker.topic.impact = impact.value;
+                    this.form_worker.topic.object = object.value;
 
-                console.log(this.form_worker.topic);
+                    console.log(this.form_worker.topic);
 
-                this.next_page("2", 40);
+                    this.next_page("2", 40);
+                } else {
+                    alert("Please fill in all spaces.");
+                }
                 break;
 
             case "step2":
