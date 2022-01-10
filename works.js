@@ -154,11 +154,11 @@ class event_listen {
 
                     if (!_.isEqual(this.form_worker.topic, data.topic)){
 
-                        this.form_worker.save();
+                        this.form_worker.request_for_args();
 
-                        console.log("Fetch for new args.");
+                        // console.log("Fetch for new args.");
                     } else {
-                        console.log("Use local args and ?preview?");
+                        // console.log("Use local args and ?preview?");
                     }
 
                     if (check_desktop_mode){
@@ -166,7 +166,7 @@ class event_listen {
                         pcard.innerHTML = `<p class="bold">Topic:</p>${subject.value} ${impact.value} impact to ${object.value}`;
                     }
 
-                    console.log(this.form_worker.topic);
+                    // console.log(this.form_worker.topic);
 
                     this.next_page("2", 40);
                 } else {
@@ -557,7 +557,10 @@ class form_formation {
     // get_token(){}
 
     request_for_args(){ // Get and save Topics
-
+        this.save();
+        this.worker.request("POST", "test", this.form).then((res)=>{
+            console.log(res);
+        }); // have to change url
     }
 
     save(){
