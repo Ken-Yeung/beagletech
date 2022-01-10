@@ -152,7 +152,7 @@ class event_listen {
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
-                        pcard.innerHTML = `Topic:</br>${subject.value} ${impact.value} impact to ${object.value}`;
+                        pcard.innerHTML = `<p class="question">Topic:</p></br>${subject.value} ${impact.value} impact to ${object.value}`;
                     }
 
                     console.log(this.form_worker.topic);
