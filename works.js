@@ -511,7 +511,7 @@ class form_formation {
     constructor(){
 
         this.topic = {
-            "tpye": "topic", // Constant
+            "type": "topic", // Constant
             "subject": "",
             "impact": null, // boolean
             "object": "",
