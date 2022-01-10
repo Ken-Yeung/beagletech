@@ -562,17 +562,18 @@ class form_formation {
         // let args_lst = [];
         this.save();
 
-        this.suggestion.topic = this.topic;
+        // this.suggestion.topic = this.topic;
 
         this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
             console.log(res);
 
+            this.suggestion.topic = res.body;
             //test
             console.log("Would return total of 9 args in a list");
-            for (let i = 0; i < 9; i++){
-                let calter = i + 1;
-                this.suggestion.args.push(`arg${calter.toString()}`);
-            }
+            // for (let i = 0; i < 9; i++){
+            //     let calter = i + 1;
+            //     this.suggestion.args.push(`arg${calter.toString()}`);
+            // }
             //test
         });
 
