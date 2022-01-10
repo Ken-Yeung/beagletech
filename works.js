@@ -577,7 +577,11 @@ class form_formation {
                     document.getElementById("btn-start").click();
                 } catch (error){}
             },999);
-            console.log("Found Topic only");
+
+            document.getElementById("ts").value = data.topic.subject;
+            document.getElementById("impact").value = data.topic.impact;
+            document.getElementById("to").value = data.topic.object;
+
             console.log(data.topic);
             console.log(clean_form.topic);
             console.log("Record Found");
