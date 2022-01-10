@@ -572,7 +572,8 @@ class form_formation {
         let status = _.isEqual(data, clean_form) || data == null;
 
         if (!status){
-            if (_.isEqual(this.form.args, clean_form.args)){
+            if (!_.isEqual(this.form.topic, clean_form.topic)){
+                document.getElementById("btn-start").click();
                 console.log("Found Topic only");
             }
             console.log("Record Found");
@@ -587,7 +588,7 @@ class form_formation {
         //     console.log(`Test result:`);
         //     console.log(res);
         // });
-        // localStorage.removeItem(this.form_id);
+        localStorage.removeItem(this.form_id);
         // console.log(localStorage.getItem(this.form_id));
     }
 
