@@ -572,11 +572,9 @@ class form_formation {
         let status = _.isEqual(data, clean_form) || data == null;
 
         if (!status){
-            if (!_.isEqual(data.topic, clean_form.topic)){
-                document.getElementById("btn-start").click();
-                console.log("Found Topic only");
-            }
-            console.log(this.form.topic);
+            document.getElementById("btn-start").click();
+            console.log("Found Topic only");
+            console.log(data.topic);
             console.log(clean_form.topic);
             console.log("Record Found");
         } else {
