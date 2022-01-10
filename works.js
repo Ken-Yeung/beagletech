@@ -120,7 +120,7 @@ class event_listen {
         }
     }
 
-    next_page(data){
+    next_page(data, prog){
         let id = data.toString();
         push_history(id, `main-tab-${id}`);
         if (desktop_status) { // Desktop Mode
@@ -128,7 +128,7 @@ class event_listen {
             this.right_card_animated_controller(id);
 
         } else { // Mobile Mode
-            let finished_perc = (40 - 100).toString();
+            let finished_perc = (prog - 100).toString();
             this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
         }
         document.getElementById(`main-tab-2`).click();
@@ -140,104 +140,118 @@ class event_listen {
         switch (page) {
             case "step1": // starting
 
-                // Start Next page
-                push_history("2", "main-tab-2");
-                if (desktop_status) { // Desktop Mode
+                this.next_page("2", 40);
 
-                    this.right_card_animated_controller("2");
+                // // Start Next page
+                // push_history("2", "main-tab-2");
+                // if (desktop_status) { // Desktop Mode
 
-                } else { // Mobile Mode
-                    let finished_perc = (40 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById(`main-tab-2`).click();
+                //     this.right_card_animated_controller("2");
+
+                // } else { // Mobile Mode
+                //     let finished_perc = (40 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById(`main-tab-2`).click();
                 break;
 
             case "step2":
 
+                this.next_page("3", 55);
+
                 // Start Next page
-                push_history("3", "main-tab-3");
-                if (desktop_status) { // Desktop Mode
+                // push_history("3", "main-tab-3");
+                // if (desktop_status) { // Desktop Mode
 
-                    this.right_card_animated_controller("3");
+                //     this.right_card_animated_controller("3");
 
-                } else { // Mobile Mode
-                    let finished_perc = (55 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById(`main-tab-3`).click();
+                // } else { // Mobile Mode
+                //     let finished_perc = (55 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById(`main-tab-3`).click();
                 break;
 
             case "step3":
 
+                this.next_page("4", 70);
+
                 // Start Next page
-                push_history("4", "main-tab-4");
-                if (desktop_status) { // Desktop Mode
+                // push_history("4", "main-tab-4");
+                // if (desktop_status) { // Desktop Mode
 
-                    this.right_card_animated_controller("4");
+                //     this.right_card_animated_controller("4");
 
-                } else { // Mobile Mode
-                    let finished_perc = (70 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById(`main-tab-4`).click();
+                // } else { // Mobile Mode
+                //     let finished_perc = (70 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById(`main-tab-4`).click();
                 break;
 
             case "step4":
 
+                this.next_page("preview", 75);
+
                 // Start Next page
-                push_history("preview", "main-tab-preview");
-                if (desktop_status) { // Desktop Mode
+                // push_history("preview", "main-tab-preview");
+                // if (desktop_status) { // Desktop Mode
 
-                    this.right_card_animated_controller("preview");
+                //     this.right_card_animated_controller("preview");
 
-                } else { // Mobile Mode
-                    let finished_perc = (75 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById("main-tab-preview").click();
+                // } else { // Mobile Mode
+                //     let finished_perc = (75 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById("main-tab-preview").click();
                 break;
 
             case "step5": // preview
 
-                // Start Next page
-                push_history("payment", "main-tab-payment");
-                if (desktop_status) { // Desktop Mode
+                this.next_page("payment", 90);
 
-                    this.right_card_animated_controller("payment");
-                } else { // Mobile Mode
-                    let finished_perc = (90 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById(`main-tab-payment`).click();
+                // Start Next page
+                // push_history("payment", "main-tab-payment");
+                // if (desktop_status) { // Desktop Mode
+
+                //     this.right_card_animated_controller("payment");
+                // } else { // Mobile Mode
+                //     let finished_perc = (90 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById(`main-tab-payment`).click();
                 break;
 
             case "step6": // payment
                 
-                // Start Next page
-                push_history("final", "main-tab-final");
-                if (desktop_status) { // Desktop Mode
-                    
-                    this.right_card_animated_controller("final");
+                this.next_page("final", 100);
 
-                } else { // Mobile Mode
-                    let finished_perc = (100 - 100).toString();
-                    this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
-                }
-                document.getElementById(`main-tab-final`).click();
+                // Start Next page
+                // push_history("final", "main-tab-final");
+                // if (desktop_status) { // Desktop Mode
+                    
+                //     this.right_card_animated_controller("final");
+
+                // } else { // Mobile Mode
+                //     let finished_perc = (100 - 100).toString();
+                //     this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
+                // }
+                // document.getElementById(`main-tab-final`).click();
                 break;
 
             case "step7": // final
 
-                // Start Next page
-                push_history("1", "main-tab-1");
-                if (desktop_status) { // Desktop Mode
+                this.next_page("1", 0);
 
-                    this.right_card_animated_controller("1");
-                } else { // Mobile Mode
-                    this.progress_bar.style.transform = "translateX(-100%)";
-                }
-                document.getElementById(`main-tab-1`).click();
+                // Start Next page
+                // push_history("1", "main-tab-1");
+                // if (desktop_status) { // Desktop Mode
+
+                //     this.right_card_animated_controller("1");
+                // } else { // Mobile Mode
+                //     this.progress_bar.style.transform = "translateX(-100%)";
+                // }
+                // document.getElementById(`main-tab-1`).click();
                 break;
 
             default:
