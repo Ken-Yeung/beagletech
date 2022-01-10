@@ -137,6 +137,7 @@ class event_listen {
     }
 
     pages(page){
+        const data = JSON.parse(localStorage.getItem("form"));
         const err_msg = "No such page here.";
         switch (page) {
             case "step1": // starting
@@ -146,10 +147,18 @@ class event_listen {
 
                 let status = subject.value != "" && object.value != "";
                 if (status){
-                    this.form_worker.topic.subject = subject.value;
-                    this.form_worker.topic.impact = impact.value;
-                    this.form_worker.topic.object = object.value;
-                    this.form_worker.save();
+
+                    if (subject.value != data.topic.subject && impact.value != data.topic.impact && object.value != data.topic.object){
+                        this.form_worker.topic.subject = subject.value;
+                        this.form_worker.topic.impact = impact.value;
+                        this.form_worker.topic.object = object.value;
+
+                        this.form_worker.save();
+
+                        console.log("Fetch for new args.");
+                    } else {
+                        console.log("Use local args and ?preview?");
+                    }
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -530,9 +539,10 @@ class form_formation {
                 "impact": null,
                 "object": ""
             },
-            "arg1": [],
-            "arg2": [],
-            "arg3": []
+            "args": [] // Total of 9
+            // "arg1": [],
+            // "arg2": [],
+            // "arg3": []
         };
 
         this.form_id = "form";
@@ -582,8 +592,11 @@ class form_formation {
             document.getElementById("impact").value = data.topic.impact;
             document.getElementById("to").value = data.topic.object;
 
-            console.log(data.topic);
-            console.log(clean_form.topic);
+            // init suggestions as follow area
+
+
+            // console.log(data.topic);
+            // console.log(clean_form.topic);
             console.log("Record Found");
         } else {
             console.log("Empty Slot");
