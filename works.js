@@ -148,10 +148,11 @@ class event_listen {
                 let status = subject.value != "" && object.value != "";
                 if (status){
 
+                    this.form_worker.topic.subject = subject.value;
+                    this.form_worker.topic.impact = impact.value;
+                    this.form_worker.topic.object = object.value;
+
                     if (subject.value != data.topic.subject && impact.value != data.topic.impact && object.value != data.topic.object){
-                        this.form_worker.topic.subject = subject.value;
-                        this.form_worker.topic.impact = impact.value;
-                        this.form_worker.topic.object = object.value;
 
                         this.form_worker.save();
 
