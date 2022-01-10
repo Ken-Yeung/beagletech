@@ -152,7 +152,7 @@ class event_listen {
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
-                    if (!_.isEqual(this.form_worker.topic, data.topic)){
+                    if (!_.isEqual(this.form_worker.topic, data.topic) || data == null){
 
                         let args = this.form_worker.request_for_args();
 
