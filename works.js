@@ -572,6 +572,9 @@ class form_formation {
         let status = _.isEqual(data, clean_form) || data == null;
 
         if (!status){
+            if (_.isEqual(this.form.args, clean_form.args)){
+                console.log("Found Topic only");
+            }
             console.log("Record Found");
         } else {
             console.log("Empty Slot");
