@@ -152,7 +152,7 @@ class event_listen {
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
-                    if (subject.value != data.topic.subject && impact.value != data.topic.impact && object.value != data.topic.object){
+                    if (!_.isEqual(this.form_worker.topic, data.topic)){
 
                         this.form_worker.save();
 
