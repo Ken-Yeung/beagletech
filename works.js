@@ -572,7 +572,11 @@ class form_formation {
         let status = _.isEqual(data, clean_form) || data == null;
 
         if (!status){
-            document.getElementById("btn-start").click();
+            setTimeout(()=>{
+                try {
+                    document.getElementById("btn-start").click();
+                } catch (error){}
+            },999);
             console.log("Found Topic only");
             console.log(data.topic);
             console.log(clean_form.topic);
