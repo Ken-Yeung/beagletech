@@ -150,6 +150,11 @@ class event_listen {
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
+                    if (check_desktop_mode){
+                        let pcard = document.getElementById("pcard-1-2");
+                        pcard.innerHTML = `Topic:</br>${subject.value} ${impact.value} impact to ${object.value}`;
+                    }
+
                     console.log(this.form_worker.topic);
 
                     this.next_page("2", 40);
