@@ -154,9 +154,10 @@ class event_listen {
 
                     if (!_.isEqual(this.form_worker.topic, data.topic)){
 
-                        this.form_worker.request_for_args();
+                        let args = this.form_worker.request_for_args();
 
-                        // console.log("Fetch for new args.");
+                        console.log("Fetch for new args.");
+                        console.log(args);
                     } else {
                         // console.log("Use local args and ?preview?");
                     }
@@ -536,6 +537,7 @@ class form_formation {
 
         this.suggestion = { // For return
             "topic": {
+                "type": "topic",
                 "subject": "",
                 "impact": null,
                 "object": ""
@@ -557,10 +559,24 @@ class form_formation {
     // get_token(){}
 
     request_for_args(){ // Get and save Topics
+        // let args_lst = [];
         this.save();
-        this.worker.request("POST", "test", this.topic).then((res)=>{
+
+        this.suggestion.topic = this.topic;
+
+        this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
             console.log(res);
-        }); // have to change url
+
+            //test
+            console.log("Would return total of 9 args in a list");
+            for (let i = 0; i < 9; i++){
+                let calter = i + 1;
+                this.suggestion.args.push(`arg${calter.toString()}`);
+            }
+            //test
+        });
+
+        return this.suggestion;
     }
 
     save(){
