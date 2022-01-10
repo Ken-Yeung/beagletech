@@ -558,7 +558,7 @@ class form_formation {
 
     request_for_args(){ // Get and save Topics
         this.save();
-        this.worker.request("POST", "test", this.form).then((res)=>{
+        this.worker.request("POST", "test", this.topic).then((res)=>{
             console.log(res);
         }); // have to change url
     }
