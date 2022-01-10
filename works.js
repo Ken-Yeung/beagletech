@@ -123,7 +123,7 @@ class event_listen {
     next_page(data, prog){
         let id = data.toString();
         push_history(id, `main-tab-${id}`);
-        if (desktop_status) { // Desktop Mode
+        if (check_desktop_mode()) { // Desktop Mode
 
             this.right_card_animated_controller(id);
 
@@ -131,12 +131,11 @@ class event_listen {
             let finished_perc = (prog - 100).toString();
             this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
         }
-        document.getElementById(`main-tab-2`).click();
+        document.getElementById(`main-tab-${id}`).click();
     }
 
     pages(page){
         const err_msg = "No such page here.";
-        const desktop_status = check_desktop_mode();
         switch (page) {
             case "step1": // starting
 
