@@ -149,6 +149,7 @@ class event_listen {
                     this.form_worker.topic.subject = subject.value;
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
+                    this.form_worker.save();
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -548,8 +549,8 @@ class form_formation {
 
     }
 
-    set_args(pos){
-
+    save(){
+        localStorage.setItem(this.form_id, JSON.stringify(this.form));
     }
 
     request_for_final(){ //including preview
@@ -557,11 +558,6 @@ class form_formation {
     }
 
     init_form(){ // Page Load
-
-        // Test Init
-        // localStorage.setItem(this.form_id, JSON.stringify(this.form));
-        // Test Init
-
         localStorage.setItem(this.clean_form_id, JSON.stringify(this.form));
         localStorage.setItem(this.clean_suggestion_id, JSON.stringify(this.suggestion));
 
@@ -569,7 +565,6 @@ class form_formation {
 
         if (localStorage.getItem(this.form_id) != null){
             data = JSON.parse(localStorage.getItem(this.form_id));
-            // data.preview = "Hello World";
         }
 
         let clean_form = JSON.parse(localStorage.getItem(this.clean_form_id));
@@ -581,9 +576,6 @@ class form_formation {
         } else {
             console.log("Empty Slot");
         }
-
-        // console.log(data);
-        // console.log(typeof(data));
 
         // Test
         // var worker = new workers();
