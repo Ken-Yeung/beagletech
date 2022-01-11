@@ -35,6 +35,12 @@ class dark_theme{
                     "btn-start",
                     "popup_back"
                 ]
+            },
+            {
+                "mode": "dark-mode",
+                "ids": [
+                    "stick"
+                ]
             }
         ];
     }
