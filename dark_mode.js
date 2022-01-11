@@ -73,15 +73,18 @@ class dark_theme{
     //     let theme_control = new dark_theme();
     //     theme_control.add();
     // });
-    var switchStatus = false;
     $("#theme").on('change', function() {
-        if ($(this).is(':checked')) {
-            switchStatus = $(this).is(':checked');
-            alert(switchStatus);// To verify
+        // var switchStatus = false;
+        let dark = new dark_theme();
+        if ($(this).is(':checked')) { // true
+            // switchStatus = $(this).is(':checked');
+            // alert(switchStatus);// To verify
+            dark.add();
         }
-        else {
-           switchStatus = $(this).is(':checked');
-           alert(switchStatus);// To verify
+        else { // false
+        //    switchStatus = $(this).is(':checked');
+        //    alert(switchStatus);// To verify
+            dark.remove();
         }
     });
 })();
