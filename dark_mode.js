@@ -69,8 +69,19 @@ class dark_theme{
 (function(){
     let dark_mode = new dark_theme();
     dark_mode.remove();
-    document.getElementById("theme").addEventListener("click", (e)=>{
-        let theme_control = new dark_theme();
-        theme_control.add();
+    // document.getElementById("theme").addEventListener("click", (e)=>{
+    //     let theme_control = new dark_theme();
+    //     theme_control.add();
+    // });
+    var switchStatus = false;
+    $("#theme").on('change', function() {
+        if ($(this).is(':checked')) {
+            switchStatus = $(this).is(':checked');
+            alert(switchStatus);// To verify
+        }
+        else {
+           switchStatus = $(this).is(':checked');
+           alert(switchStatus);// To verify
+        }
     });
 })();
