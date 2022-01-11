@@ -4,7 +4,6 @@ var dark_mode = (e)=>{
             "mode": "dark-background",
             "ids": [
                 "content_wrapper",
-                "portal_progress",
                 "mini_box_1",
                 "mini_box_2",
                 "mini_box_3",
@@ -23,6 +22,7 @@ var dark_mode = (e)=>{
             "mode": "light-dark-bg",
             "ids": [
                 "nav",
+                "portal_progress",
                 "main-home-tutorial",
                 "main-home-about",
                 "main-home-showcase",
