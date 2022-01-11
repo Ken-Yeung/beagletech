@@ -76,7 +76,7 @@ class dark_theme{
         try {
             if (theme_stat){
                 $('#theme').click();
-                console.log(theme_stat);
+                // console.log(theme_stat);
             }
         } catch (error){}
     },999);
