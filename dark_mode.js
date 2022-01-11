@@ -79,11 +79,13 @@ class dark_theme{
         if ($(this).is(':checked')) { // true
             // switchStatus = $(this).is(':checked');
             // alert(switchStatus);// To verify
+            set_img("home", "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/61dd5779f0eb77638667a17d_logo4darkmode-cutout.png");
             dark.add();
         }
         else { // false
         //    switchStatus = $(this).is(':checked');
         //    alert(switchStatus);// To verify
+            set_img("home", "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/61dd5779a26af837182b662d_raw_logo_without_name.png");
             dark.remove();
         }
     });

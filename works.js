@@ -293,14 +293,6 @@ class event_listen {
             }
         },delay_ms);
     }
-
-    set_img(id, url){
-        let img = document.getElementById(id.toString());
-        let status = img.getAttribute("src") != url;
-        if (status){
-            img.setAttribute("src", url.toString());
-        }
-    }
     
     animated_actions(details){
         let icon_id = {
@@ -318,7 +310,7 @@ class event_listen {
         };
 
         for (let i = 0; i < icon_id.id.length; i++){
-            this.set_img(icon_id.id[i], icon_id.status[details.icon[i]]);
+            set_img(icon_id.id[i], icon_id.status[details.icon[i]]);
         }
 
         if (details.case == "1"){
@@ -742,6 +734,14 @@ function check_desktop_mode(){
 function push_history(to_page, id){
     history.pushState({id: id}, `Page ${to_page}`, `./?page=${to_page}`);
     return;
+}
+
+function set_img(id, url){
+    let img = document.getElementById(id.toString());
+    let status = img.getAttribute("src") != url;
+    if (status){
+        img.setAttribute("src", url.toString());
+    }
 }
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
