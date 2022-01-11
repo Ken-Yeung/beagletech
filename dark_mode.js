@@ -67,8 +67,21 @@ class dark_theme{
 }
 
 (function(){
-    let dark_mode = new dark_theme();
-    dark_mode.remove();
+    // let dark_mode = new dark_theme();
+    $('#theme').click();
+    let stored_theme = localStorage.getItem("theme");
+    let theme_stat = stored_theme == null || stored_theme == "0";
+
+    setTimeout(()=>{
+        try {
+            if (theme_stat){
+                $('#theme').click();
+                console.log(theme_stat);
+            }
+        } catch (error){}
+    },999);
+
+    // dark_mode.remove();
     // document.getElementById("theme").addEventListener("click", (e)=>{
     //     let theme_control = new dark_theme();
     //     theme_control.add();
@@ -81,12 +94,14 @@ class dark_theme{
             // alert(switchStatus);// To verify
             set_img("home", "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/61dd5779f0eb77638667a17d_logo4darkmode-cutout.png");
             dark.add();
+            localStorage.setItem("theme", "1");
         }
         else { // false
         //    switchStatus = $(this).is(':checked');
         //    alert(switchStatus);// To verify
             set_img("home", "https://uploads-ssl.webflow.com/614ad10f1f9dc8890e785112/61dd5779a26af837182b662d_raw_logo_without_name.png");
             dark.remove();
+            localStorage.setItem("theme", "0");
         }
     });
 })();
