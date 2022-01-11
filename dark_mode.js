@@ -17,6 +17,7 @@ class dark_theme{
                     "arg_selector_1",
                     "arg_selector_2",
                     "arg_selector_3",
+                    ".body"
                 ]
             },
             {

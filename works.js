@@ -25,7 +25,12 @@ function enable_scroll() {
 // <-- ###### class ###### -->
 class class_worker{
     constructor(id, debug=false){
-        this.elem = document.getElementById(id.toString());
+        let status = id.toString().charAt(0) == ".";
+        if(!status){
+            this.elem = document.getElementById(id.toString());
+        } else {
+            this.elem = document.querySelector(id,toString());
+        }
         this.debug = debug;
     }
 
