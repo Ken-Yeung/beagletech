@@ -666,11 +666,14 @@ class form_formation {
                 }
     
                 this.suggestion.args = test_res;
-                
+
                 this.save(this.suggestion_id, this.suggestion);
             });
         }
-        return this.suggestion;
+
+        let result = JSON.parse(localStorage.getItem(this.suggestion_id));
+
+        return result;
     }
 
     save(id = '', obj = {}){
