@@ -632,11 +632,13 @@ class form_formation {
 
         let is_local_suggest = local_suggestion != null && _.isEqual(local_suggestion.topic, local_form.topic);
         if (is_local_suggest){
+            setTimeout(()=>{
+                console.log("Using Local Suggestions");
+                this.suggestion.topic = local_form.topic;
+                this.suggestion.args = local_suggestion.args;
 
-            console.log("Using Local Suggestions");
-            this.suggestion.topic = local_form.topic;
-            this.suggestion.args = local_suggestion.args;
-
+                loading_controller(false);
+            },999);
         } else {
             await this.worker.request("POST", "test", this.topic).then(async (res)=>{ // have to change url
                 console.log("Fetch for new args");
@@ -658,9 +660,11 @@ class form_formation {
                 this.suggestion.args = test_res;
 
                 await this.save(this.suggestion_id, this.suggestion);
+
+                loading_controller(false);
             });
         }
-        loading_controller(false);
+
         return this.suggestion;
     }
 
