@@ -130,7 +130,7 @@ class event_listen {
         
         genterator.args_generator(local_suggest.args);
 
-        this.args_menu_controller(cur_id, false);
+        genterator.args_menu_controller(cur_id, false);
     }
 
     args_generator(lst=[]){
