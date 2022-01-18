@@ -115,7 +115,16 @@ class event_listen {
     }
 
     args_behave(e){
+        // let arg_id = e.target.id.split("_")[1];
+        let cur_id = e.target.id.split("_")[2];
 
+        // let args_id = `arg_`
+
+        document.getElementById(`arg_text_${cur_id}`).innerText = e.target.value;
+
+        let local_suggest = JSON.parse(localStorage.getItem(this.suggestion_id));
+
+        this.args_generator(local_suggest.args);
     }
 
     args_generator(lst=[]){
@@ -153,8 +162,12 @@ class event_listen {
             filted.forEach((item, index, arr)=>{
                 let create_wrapper = document.createElement("DIV");
                 create_wrapper.className = "args";
-                console.log(item);
-
+                // console.log(item);
+                create_wrapper.innerText = item;
+                create_wrapper.id = `arg_${(index+1).toString()}_${par_id}`;
+                create_wrapper.addEventListener("click", this.args_behave);
+                
+                parent.appendChild(create_wrapper);
             });
 
         }
