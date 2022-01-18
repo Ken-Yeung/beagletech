@@ -141,6 +141,7 @@ class event_listen {
     arg_selectors(){
         for(let i = 0; i < 3; i++){
             let pos = i + 1;
+
             $(`#arg_selector_${pos.toString()}`).hover((e)=>{
                 
                 let id = e.target.id.split("_")[2];
@@ -158,6 +159,11 @@ class event_listen {
                 // console.log(msg);
 
                 this.args_menu_controller(id, false);
+            });
+
+            $(`#arg_selector_${pos.toString()}`).click((e)=>{
+                let id = e.target.id.split("_")[2];
+                this.args_menu_controller(id, true);
             });
 
         }
