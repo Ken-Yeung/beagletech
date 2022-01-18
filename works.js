@@ -238,6 +238,7 @@ class event_listen {
                     let args = await this.form_worker.request_for_args();
 
                     // console.log("Fetch for args.");
+                    console.log("Fetched All ARGS:");
                     console.log(args.args);
 
                     if (check_desktop_mode){
