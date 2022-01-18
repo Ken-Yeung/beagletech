@@ -740,7 +740,7 @@ class form_formation {
             this.suggestion.topic = local_form.topic;
             this.suggestion.args = local_suggestion.args;
 
-            setTimeout(()=>{
+            await setTimeout(()=>{
                 loading_controller(false);
             },999);
         } else {
@@ -765,7 +765,7 @@ class form_formation {
 
                 await this.save(this.suggestion_id, this.suggestion);
 
-                setTimeout(()=>{
+                await setTimeout(()=>{
                     loading_controller(false);
                 },999);
             });
