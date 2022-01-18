@@ -206,7 +206,7 @@ class event_listen {
     }
 
     async pages(page){
-        const data = JSON.parse(localStorage.getItem("form"));
+        // const data = JSON.parse(localStorage.getItem("form"));
         const err_msg = "No such page here.";
         switch (page) {
             case "step1": // starting
@@ -216,25 +216,12 @@ class event_listen {
 
                 let status = subject.value != "" && object.value != "";
                 if (status){
+                    // Need a Loading Pop Up
 
                     this.form_worker.topic.subject = subject.value;
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
-                    // let topic_state = true;
-                    // if (data != null){
-                    //     topic_state = !_.isEqual(this.form_worker.topic, data.topic);
-                    // }
-
-                    // if (topic_state){
-
-                    //     let args = this.form_worker.request_for_args();
-
-                    //     console.log("Fetch for new args.");
-                    //     console.log(args);
-                    // } else {
-                    //     console.log("Use local args and ?preview?");
-                    // }
                     let args = await this.form_worker.request_for_args();
 
                     // console.log("Fetch for args.");
