@@ -312,7 +312,7 @@ class event_listen {
                 if (args_status1){
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-main-2");
-                        pcard.innerHTML = `<p class="bold">Argument 1:</p>`;
+                        pcard.innerHTML = `<p class="bold">Argument 1:</p>${document.getElementById("arg_text_1").innerText}`;
                     }
                     this.next_page("3", 55);
                 } else {
@@ -326,7 +326,7 @@ class event_listen {
                 if (args_status2){
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-2-3");
-                        pcard.innerHTML = `<p class="bold">Argument 2:</p>`;
+                        pcard.innerHTML = `<p class="bold">Argument 2:</p>${document.getElementById("arg_text_2").innerText}`;
                     }
                     this.next_page("4", 70);
                 } else {
@@ -340,7 +340,7 @@ class event_listen {
                 if (args_status3){
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-2-4");
-                        pcard.innerHTML = `<p class="bold">Argument 3:</p>`;
+                        pcard.innerHTML = `<p class="bold">Argument 3:</p>${document.getElementById("arg_text_3").innerText}`;
                     }
                     this.next_page("preview", 75);
                 } else {
