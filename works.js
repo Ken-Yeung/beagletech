@@ -114,8 +114,32 @@ class event_listen {
         this.form_worker = new form_formation();
     }
 
-    args_generator(){
+    args_generator(lst=[]){
+        let choices = []
 
+        let filted = []
+
+        for(let i = 0; i < 3; i ++){
+            let foo = (i + 1).toString();
+            let data = document.getElementById(`arg_text_${foo}`).innerText;
+            
+            choices.push(data);
+        }
+
+        for(let i = 0; i < lst.length; i++){
+            let caught = -1;
+            choices.forEach((item, index, arr)=>{
+                let status = lst[i] == item;
+                if(status){
+                    caught = i;
+                }
+            });
+            if (i != caught){
+                filted.push(lst[i]);
+            }
+        }
+
+        return filted;
     }
 
     args_menu_controller(id, on_off=false){
@@ -225,6 +249,9 @@ class event_listen {
                     // console.log("Fetch for args.");
                     console.log("Fetched All ARGS:");
                     console.log(args.args);
+                    
+                    console.log("Filtered list.");
+                    console.log(this.args_generator(args.args));
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -643,7 +670,7 @@ class form_formation {
         } else {
             await this.worker.request("POST", "test", this.topic).then(async (res)=>{ // have to change url
                 console.log("Fetch for new args");
-                console.log(res);
+                // console.log(res);
     
                 this.suggestion.topic = res.body;
                 //test
