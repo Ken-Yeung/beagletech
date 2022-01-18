@@ -114,6 +114,31 @@ class event_listen {
         this.form_worker = new form_formation();
     }
 
+    // display_args_menu(e){
+    //     let id = e.target.id;
+
+    //     console.log(id);
+
+    // }
+
+    arg_selectors(){
+        for(let i = 0; i < 3; i++){
+            let pos = i + 1;
+            $(`#arg_selector_${pos.toString()}`).hover((e)=>{
+                let msg = `Hover to ${e.target.id}`;
+                console.log(msg);
+            }, (e)=>{
+                let msg = `Hovout to ${e.target.id}`;
+                console.log(msg);
+            });
+
+        }
+
+
+
+        return;
+    }
+
     all_forms(){
         for(let i = 0; i < this.form.length; i++){
             this.form[i].addEventListener("submit", (e)=>{
