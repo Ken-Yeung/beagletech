@@ -115,12 +115,23 @@ class event_listen {
     }
 
     args_menu_controller(id, on_off=false){
+
+        let args_menu = new class_worker(`args_menu_${id}`);
+
         if (on_off){
-            alert(`Turn On ${id}`);
+            // alert(`Turn On ${id}`);
             // console.log(`Turn On ${id}`);
+            args_menu.remove("noshow");
+            args_menu.delay_remove("opc-0", 33);
+
+
         } else {
             // console.log(`Turn Off ${id}`);
-            alert(`Turn Off ${id}`);
+            // alert(`Turn Off ${id}`);
+
+            args_menu.add("opc-0");
+            args_menu.delay_add("noshow", 333);
+
         }
     }
 
@@ -129,7 +140,7 @@ class event_listen {
             let pos = i + 1;
             $(`#arg_selector_${pos.toString()}`).hover((e)=>{
                 
-                let id = e.target.id;
+                let id = e.target.id.split("_")[2];
 
                 // let msg = `Hover to ${id}`;
                 // console.log(msg);
@@ -138,7 +149,7 @@ class event_listen {
 
             }, (e)=>{
 
-                let id = e.target.id;
+                let id = e.target.id.split("_")[2];
 
                 // let msg = `Hovout to ${id}`;
                 // console.log(msg);
