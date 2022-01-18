@@ -631,11 +631,10 @@ class form_formation {
 
     // get_token(){}
 
-    async request_for_args(){ // Get and save Topics
+    request_for_args(){ // Get and save Topics
         // let args_lst = [];
         this.save();
         let local_suggestion;
-        // let result;
         // this.suggestion.topic = this.topic;
         let local_form = JSON.parse(localStorage.getItem(this.form_id));
         try{
@@ -648,9 +647,11 @@ class form_formation {
         if (is_local_suggest){
 
             console.log("Using Local Suggestions");
+            this.suggestion.topic = local_form.topic;
+            this.suggestion.args = local_suggestion.args;
 
         } else {
-            await this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
+            this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
                 console.log(res);
     
                 this.suggestion.topic = res.body;
@@ -672,9 +673,7 @@ class form_formation {
             });
         }
 
-        let result = JSON.parse(localStorage.getItem(this.suggestion_id));
-
-        return result;
+        return this.suggestion;
     }
 
     save(id = '', obj = {}){
