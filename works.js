@@ -221,20 +221,24 @@ class event_listen {
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
-                    let topic_state = true;
-                    if (data != null){
-                        topic_state = !_.isEqual(this.form_worker.topic, data.topic);
-                    }
+                    // let topic_state = true;
+                    // if (data != null){
+                    //     topic_state = !_.isEqual(this.form_worker.topic, data.topic);
+                    // }
 
-                    if (topic_state){
+                    // if (topic_state){
 
-                        let args = this.form_worker.request_for_args();
+                    //     let args = this.form_worker.request_for_args();
 
-                        console.log("Fetch for new args.");
-                        console.log(args);
-                    } else {
-                        console.log("Use local args and ?preview?");
-                    }
+                    //     console.log("Fetch for new args.");
+                    //     console.log(args);
+                    // } else {
+                    //     console.log("Use local args and ?preview?");
+                    // }
+                    let args = this.form_worker.request_for_args();
+
+                    console.log("Fetch for args.");
+                    console.log(args);
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -641,7 +645,7 @@ class form_formation {
 
         let is_local_suggest = local_suggestion != null && _.isEqual(local_suggestion.topic, local_form.topic);
         if (is_local_suggest){
-            
+
             console.log("Using Local Suggestions");
 
         } else {
