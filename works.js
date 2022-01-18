@@ -631,7 +631,7 @@ class form_formation {
 
     // get_token(){}
 
-    request_for_args(){ // Get and save Topics
+    async request_for_args(){ // Get and save Topics
         // let args_lst = [];
         this.save();
         let local_suggestion;
@@ -651,7 +651,7 @@ class form_formation {
             this.suggestion.args = local_suggestion.args;
 
         } else {
-            this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
+            await this.worker.request("POST", "test", this.topic).then(async (res)=>{ // have to change url
                 console.log("Fetch for new args");
                 console.log(res);
     
@@ -670,7 +670,7 @@ class form_formation {
     
                 this.suggestion.args = test_res;
 
-                this.save(this.suggestion_id, this.suggestion);
+                await this.save(this.suggestion_id, this.suggestion);
             });
         }
 
