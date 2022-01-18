@@ -217,7 +217,7 @@ class event_listen {
                 let status = subject.value != "" && object.value != "";
                 if (status){
                     // Need a Loading Pop Up
-
+                    loading_controller(true);
                     this.form_worker.topic.subject = subject.value;
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
@@ -227,6 +227,8 @@ class event_listen {
                     // console.log("Fetch for args.");
                     console.log("Fetched All ARGS:");
                     console.log(args.args);
+
+                    loading_controller(false);
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -830,6 +832,27 @@ function set_img(id, url){
         img.setAttribute("src", url.toString());
     }
 }
+
+function loading_controller(on_off=false){
+    
+    popup = new class_worker("popup");
+    loading_page = new class_worker("loading");
+
+    if (on_off){
+        popup.remove("noshow");
+        popup.delay_remove("hide-btn", 33);
+        loading_page.delay_remove("noshow", 33);
+        loading_page.delay_remove("opc-0", 33);
+    } else {
+        loading_page.add("opc-0");
+        loading_page.delay_add("noshow", 333);
+        popup.add("hide-btn");
+        popup.delay_add("noshow", 333);
+    }
+
+    return;
+}
+
 // <-- ###### function ###### -->
 // <-- ###### test func ###### -->
 
