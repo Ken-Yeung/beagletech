@@ -205,7 +205,7 @@ class event_listen {
         document.getElementById(`main-tab-${id}`).click();
     }
 
-    pages(page){
+    async pages(page){
         const data = JSON.parse(localStorage.getItem("form"));
         const err_msg = "No such page here.";
         switch (page) {
@@ -235,7 +235,7 @@ class event_listen {
                     // } else {
                     //     console.log("Use local args and ?preview?");
                     // }
-                    let args = this.form_worker.request_for_args();
+                    let args = await this.form_worker.request_for_args();
 
                     // console.log("Fetch for args.");
                     console.log(args.args);
