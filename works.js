@@ -530,6 +530,8 @@ class event_listen {
 
         this.form_worker.init();
 
+        this.arg_selectors();
+
     }
 
 }
