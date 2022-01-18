@@ -666,10 +666,10 @@ class form_formation {
                 }
     
                 this.suggestion.args = test_res;
+                
+                this.save(this.suggestion_id, this.suggestion);
             });
         }
-
-        this.save(this.suggestion_id, this.suggestion);
         return this.suggestion;
     }
 
