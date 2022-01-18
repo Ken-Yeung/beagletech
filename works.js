@@ -216,8 +216,6 @@ class event_listen {
 
                 let status = subject.value != "" && object.value != "";
                 if (status){
-                    // Need a Loading Pop Up
-                    loading_controller(true);
                     this.form_worker.topic.subject = subject.value;
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
@@ -227,8 +225,6 @@ class event_listen {
                     // console.log("Fetch for args.");
                     console.log("Fetched All ARGS:");
                     console.log(args.args);
-
-                    loading_controller(false);
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -622,6 +618,7 @@ class form_formation {
     // get_token(){}
 
     async request_for_args(){ // Get and save Topics
+        loading_controller(true);
         // let args_lst = [];
         this.save();
         let local_suggestion;
@@ -663,7 +660,7 @@ class form_formation {
                 await this.save(this.suggestion_id, this.suggestion);
             });
         }
-
+        loading_controller(false);
         return this.suggestion;
     }
 
