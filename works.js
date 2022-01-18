@@ -624,6 +624,11 @@ class event_listen {
     }
 
     init(){
+
+        document.querySelectorAll("#back").addEventListener("click", (e)=>{
+            history.back();
+        });
+
         this.start.addEventListener("click", (e)=>{
             push_history("1", "main-tab-1");
 
