@@ -619,6 +619,7 @@ class form_formation {
         this.form_id = "form";
         this.clean_form_id = "clean_form";
         this.clean_suggestion_id = "clean_suggestion";
+        this.suggestion_id = "suggestions";
 
         this.worker = new workers();
 
@@ -629,27 +630,51 @@ class form_formation {
     request_for_args(){ // Get and save Topics
         // let args_lst = [];
         this.save();
-
+        let local_suggestion;
         // this.suggestion.topic = this.topic;
+        let local_form = JSON.parse(localStorage.getItem(this.form_id));
+        try{
+            local_suggestion = JSON.parse(localStorage.getItem(this.suggestion_id));
+        } catch(err){
+            local_suggestion = null;
+        }
 
-        this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
-            console.log(res);
+        let is_local_suggest = local_suggestion != null && _.isEqual(local_suggestion.topic, local_form.topic);
+        if (is_local_suggest){
+            
+            console.log("Using Local Suggestions");
 
-            this.suggestion.topic = res.body;
-            //test
-            console.log("Would return total of 9 args in a list");
-            // for (let i = 0; i < 9; i++){
-            //     let calter = i + 1;
-            //     this.suggestion.args.push(`arg${calter.toString()}`);
-            // }
-            //test
-        });
+        } else {
+            this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
+                console.log(res);
+    
+                this.suggestion.topic = res.body;
+                //test
+                console.log("Would return total of 9 args in a list");
+                // for (let i = 0; i < 9; i++){
+                //     let calter = i + 1;
+                //     this.suggestion.args.push(`arg${calter.toString()}`);
+                // }
+                //test
+                let test_res = [];
+                for(let i = 0; i < 9; i++){
+                    test_res.push(`Arguments of ${(i+1).toString()}`);
+                }
+    
+                this.suggestion.args = test_res;
+            });
+        }
 
+        this.save(this.suggestion_id, this.suggestion);
         return this.suggestion;
     }
 
-    save(){
-        localStorage.setItem(this.form_id, JSON.stringify(this.form));
+    save(id = '', obj = {}){
+        if(id == '' || obj == {}){
+            id = this.form_id;
+            obj = this.form;
+        }
+        localStorage.setItem(id, JSON.stringify(obj));
     }
 
     request_for_final(){ //including preview
