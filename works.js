@@ -122,15 +122,17 @@ class event_listen {
 
         document.getElementById(`arg_text_${cur_id}`).innerText = e.target.innerText;
 
-        console.log(e);
+        // console.log(e);
 
         let local_suggest = JSON.parse(localStorage.getItem("suggestions"));
 
         let genterator = new event_listen();
         
-        genterator.args_generator(local_suggest.args);
-
         genterator.args_menu_controller(cur_id, false);
+
+        setTimeout(()=>{
+            genterator.args_generator(local_suggest.args);
+        }, 999);
     }
 
     args_generator(lst=[]){
