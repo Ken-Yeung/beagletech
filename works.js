@@ -291,7 +291,7 @@ class event_listen {
                     // console.log("Fetched All ARGS:");
                     // console.log(args.args);
                     
-                    console.log("Filtered list.");
+                    // console.log("Filtered list.");
                     this.args_generator(args.args);
 
                     if (check_desktop_mode){
@@ -308,18 +308,45 @@ class event_listen {
                 break;
 
             case "step2":
-
-                this.next_page("3", 55);
+                let args_status1 = document.getElementById("arg_text_1").innerText != "Choose a preferred argument";
+                if (args_status1){
+                    if (check_desktop_mode){
+                        let pcard = document.getElementById("pcard-main-2");
+                        pcard.innerHTML = `<p class="bold">Argument 1:</p>`;
+                    }
+                    this.next_page("3", 55);
+                } else {
+                    alert("Please choose an argument.");
+                }
                 break;
 
             case "step3":
 
-                this.next_page("4", 70);
+                let args_status2 = document.getElementById("arg_text_2").innerText != "Choose a preferred argument";
+                if (args_status2){
+                    if (check_desktop_mode){
+                        let pcard = document.getElementById("pcard-2-3");
+                        pcard.innerHTML = `<p class="bold">Argument 2:</p>`;
+                    }
+                    this.next_page("4", 70);
+                } else {
+                    alert("Please choose an argument.");
+                }
+
                 break;
 
             case "step4":
+                let args_status3 = document.getElementById("arg_text_3").innerText != "Choose a preferred argument";
+                if (args_status3){
+                    if (check_desktop_mode){
+                        let pcard = document.getElementById("pcard-2-4");
+                        pcard.innerHTML = `<p class="bold">Argument 3:</p>`;
+                    }
+                    this.next_page("preview", 75);
+                } else {
+                    alert("Please choose an argument.");
+                }
 
-                this.next_page("preview", 75);
                 break;
 
             case "step5": // preview
