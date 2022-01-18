@@ -662,7 +662,9 @@ class form_formation {
 
                 await this.save(this.suggestion_id, this.suggestion);
 
-                loading_controller(false);
+                setTimeout(()=>{
+                    loading_controller(false);
+                },999);
             });
         }
 
