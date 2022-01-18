@@ -114,9 +114,12 @@ class event_listen {
         this.form_worker = new form_formation();
     }
 
+    args_behave(e){
+
+    }
+
     args_generator(lst=[]){
         let choices = []
-
         let filted = []
 
         for(let i = 0; i < 3; i ++){
@@ -137,6 +140,23 @@ class event_listen {
             if (i != caught){
                 filted.push(lst[i]);
             }
+        }
+
+        for (let i = 0; i < 3; i++){
+            let par_id = (i + 1).toString();
+            let parent = document.getElementById(`args_menu_${par_id}`);
+            while (parent.firstChild){
+                parent.removeChild(parent.lastChild);
+            }
+
+            // Push all filterd args here
+            filted.forEach((item, index, arr)=>{
+                let create_wrapper = document.createElement("DIV");
+                create_wrapper.className = "args";
+                console.log(item);
+
+            });
+
         }
 
         return filted;
@@ -247,11 +267,11 @@ class event_listen {
                     let args = await this.form_worker.request_for_args();
 
                     // console.log("Fetch for args.");
-                    console.log("Fetched All ARGS:");
-                    console.log(args.args);
+                    // console.log("Fetched All ARGS:");
+                    // console.log(args.args);
                     
                     console.log("Filtered list.");
-                    console.log(this.args_generator(args.args));
+                    this.args_generator(args.args);
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
