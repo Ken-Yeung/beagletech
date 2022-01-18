@@ -125,6 +125,8 @@ class event_listen {
         let local_suggest = JSON.parse(localStorage.getItem(this.suggestion_id));
 
         this.args_generator(local_suggest.args);
+
+        this.args_menu_controller(cur_id, false);
     }
 
     args_generator(lst=[]){
