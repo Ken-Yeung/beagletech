@@ -116,9 +116,11 @@ class event_listen {
 
     args_menu_controller(id, on_off=false){
         if (on_off){
-            console.log(`Turn On ${id}`);
+            alert(`Turn On ${id}`);
+            // console.log(`Turn On ${id}`);
         } else {
-            console.log(`Turn Off ${id}`);
+            // console.log(`Turn Off ${id}`);
+            alert(`Turn Off ${id}`);
         }
     }
 
