@@ -122,7 +122,9 @@ class event_listen {
 
         document.getElementById(`arg_text_${cur_id}`).innerText = e.target.value;
 
-        let local_suggest = JSON.parse(localStorage.getItem(this.suggestion_id));
+        console.log(e);
+
+        let local_suggest = JSON.parse(localStorage.getItem("suggestions"));
 
         this.args_generator(local_suggest.args);
 
