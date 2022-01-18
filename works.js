@@ -942,9 +942,9 @@ function set_img(id, url){
 
 function loading_controller(on_off=false){
     
-    popup = new class_worker("popup");
-    loading_page = new class_worker("loading");
-    popup_close = new class_worker("popup-close");
+    let popup = new class_worker("popup");
+    let loading_page = new class_worker("loading");
+    let popup_close = new class_worker("popup-close");
 
     if (on_off){
         popup.remove("noshow");
