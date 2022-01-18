@@ -161,7 +161,7 @@ class event_listen {
                 this.args_menu_controller(id, false);
             });
 
-            $(`#arg_selector_${pos.toString()}`).click((e)=>{
+            $(`#arg_text_${pos.toString()}`).click((e)=>{
                 let id = e.target.id.split("_")[2];
                 this.args_menu_controller(id, true);
             });
