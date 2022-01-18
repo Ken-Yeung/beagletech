@@ -943,7 +943,7 @@ function set_img(id, url){
 function loading_controller(on_off=false){
     
     let popup = new class_worker("popup");
-    let loading_page = new class_worker("loading", true);
+    let loading_page = new class_worker("loading");
     let popup_close = new class_worker("popup-close");
 
     if (on_off){
