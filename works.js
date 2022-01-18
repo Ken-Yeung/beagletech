@@ -114,22 +114,34 @@ class event_listen {
         this.form_worker = new form_formation();
     }
 
-    // display_args_menu(e){
-    //     let id = e.target.id;
-
-    //     console.log(id);
-
-    // }
+    args_menu_controller(id, on_off=false){
+        if (on_off){
+            console.log(`Turn On ${id}`);
+        } else {
+            console.log(`Turn Off ${id}`);
+        }
+    }
 
     arg_selectors(){
         for(let i = 0; i < 3; i++){
             let pos = i + 1;
             $(`#arg_selector_${pos.toString()}`).hover((e)=>{
-                let msg = `Hover to ${e.target.id}`;
-                console.log(msg);
+                
+                let id = e.target.id;
+
+                // let msg = `Hover to ${id}`;
+                // console.log(msg);
+
+                this.args_menu_controller(id, true);
+
             }, (e)=>{
-                let msg = `Hovout to ${e.target.id}`;
-                console.log(msg);
+
+                let id = e.target.id;
+
+                // let msg = `Hovout to ${id}`;
+                // console.log(msg);
+
+                this.args_menu_controller(id, false);
             });
 
         }
