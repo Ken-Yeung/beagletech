@@ -635,6 +635,7 @@ class form_formation {
         // let args_lst = [];
         this.save();
         let local_suggestion;
+        let result;
         // this.suggestion.topic = this.topic;
         let local_form = JSON.parse(localStorage.getItem(this.form_id));
         try{
@@ -668,10 +669,9 @@ class form_formation {
                 this.suggestion.args = test_res;
 
                 this.save(this.suggestion_id, this.suggestion);
+                result = JSON.parse(localStorage.getItem(this.suggestion_id));
             });
         }
-
-        let result = JSON.parse(localStorage.getItem(this.suggestion_id));
 
         return result;
     }
