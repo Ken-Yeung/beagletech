@@ -114,28 +114,33 @@ class event_listen {
         this.form_worker = new form_formation();
     }
 
+    args_generator(){
+
+    }
+
     args_menu_controller(id, on_off=false){
 
         let storage_id = "menu";
-
-        if (on_off){
-            let args_menu = new class_worker(`args_menu_${id}`);
-            // alert(`Turn On ${id}`);
-            // console.log(`Turn On ${id}`);
-            args_menu.remove("noshow");
-            args_menu.delay_remove("opc-0", 33);
-
-            sessionStorage.setItem(storage_id, id);
-        } else {
-            let pre_id = sessionStorage.getItem(storage_id);
-            let args_menu = new class_worker(`args_menu_${pre_id}`);
-            // console.log(`Turn Off ${id}`);
-            // alert(`Turn Off ${id}`);
-
-            args_menu.add("opc-0");
-            args_menu.delay_add("noshow", 333);
-
-        }
+        try{
+            if (on_off){
+                let args_menu = new class_worker(`args_menu_${id}`);
+                // alert(`Turn On ${id}`);
+                // console.log(`Turn On ${id}`);
+                args_menu.remove("noshow");
+                args_menu.delay_remove("opc-0", 33);
+    
+                sessionStorage.setItem(storage_id, id);
+            } else {
+                let pre_id = sessionStorage.getItem(storage_id);
+                let args_menu = new class_worker(`args_menu_${pre_id}`);
+                // console.log(`Turn Off ${id}`);
+                // alert(`Turn Off ${id}`);
+    
+                args_menu.add("opc-0");
+                args_menu.delay_add("noshow", 333);
+    
+            }
+        } catch (err) {}
     }
 
     arg_selectors(){
