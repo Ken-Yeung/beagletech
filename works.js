@@ -285,7 +285,7 @@ class event_listen {
                     this.form_worker.topic.impact = impact.value;
                     this.form_worker.topic.object = object.value;
 
-                    let args = await this.form_worker.request_for_args(this.next_page("2", 40));
+                    let args = await this.form_worker.request_for_args();
 
                     // console.log("Fetch for args.");
                     // console.log("Fetched All ARGS:");
@@ -301,7 +301,7 @@ class event_listen {
 
                     // console.log(this.form_worker.topic);
 
-                    // this.next_page("2", 40);
+                    this.next_page("2", 40);
                 } else {
                     alert("Please fill in all spaces.");
                 }
@@ -720,7 +720,7 @@ class form_formation {
 
     // get_token(){}
 
-    async request_for_args(cb){ // Get and save Topics
+    async request_for_args(){ // Get and save Topics
         loading_controller(true);
         // let args_lst = [];
         this.save();
@@ -742,7 +742,6 @@ class form_formation {
 
             setTimeout(()=>{
                 loading_controller(false);
-                cb();
             },999);
         } else {
             await this.worker.request("POST", "test", this.topic).then(async (res)=>{ // have to change url
@@ -768,7 +767,6 @@ class form_formation {
 
                 setTimeout(()=>{
                     loading_controller(false);
-                    cb();
                 },999);
             });
         }
