@@ -944,17 +944,20 @@ function loading_controller(on_off=false){
     
     popup = new class_worker("popup");
     loading_page = new class_worker("loading");
+    popup_close = new class_worker("popup-close");
 
     if (on_off){
         popup.remove("noshow");
         popup.delay_remove("hide-btn", 33);
         loading_page.delay_remove("noshow", 33);
         loading_page.delay_remove("opc-0", 33);
+        popup_close.add("noshow");
     } else {
         loading_page.add("opc-0");
         loading_page.delay_add("noshow", 333);
         popup.add("hide-btn");
         popup.delay_add("noshow", 333);
+        popup_close.delay_remove("noshow", 333);
     }
 
     return;
