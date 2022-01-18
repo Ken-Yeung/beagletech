@@ -237,8 +237,8 @@ class event_listen {
                     // }
                     let args = this.form_worker.request_for_args();
 
-                    console.log("Fetch for args.");
-                    console.log(args);
+                    // console.log("Fetch for args.");
+                    console.log(args.args);
 
                     if (check_desktop_mode){
                         let pcard = document.getElementById("pcard-1-2");
@@ -652,6 +652,7 @@ class form_formation {
 
         } else {
             this.worker.request("POST", "test", this.topic).then((res)=>{ // have to change url
+                console.log("Fetch for new args");
                 console.log(res);
     
                 this.suggestion.topic = res.body;
