@@ -730,6 +730,12 @@ class event_listen {
 
         window.addEventListener("popstate", (e)=>{
             // console.log(e.state);
+            let foo = e.state.id.split("-")[2];
+            if (foo == "home"){
+                this.change_nav_minicon(false);
+            } else {
+                this.change_nav_minicon(true);
+            }
             try {
                 if (check_desktop_mode()) { // Desktop Mode
 
