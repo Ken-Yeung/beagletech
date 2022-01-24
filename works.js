@@ -22,6 +22,10 @@ function enable_scroll() {
 }
 // scroll control
 
+// Global Variable
+const spin_icon = document.getElementById("spinning_icon");
+// Global Variable
+
 // <-- ###### class ###### -->
 class class_worker{
     constructor(id, debug=false){
@@ -277,6 +281,8 @@ class event_listen {
         }
 
         document.getElementById(`main-tab-${id}`).click();
+
+        spin_icon.click();
     }
 
     async pages(page){
@@ -393,6 +399,7 @@ class event_listen {
             } else {
                 this.progress_bar.style.transform = "translateX(-100%)";
             }
+            spin_icon.click();
         });
         tool_tips(this.home, "Home Page");
     }
@@ -724,6 +731,7 @@ class event_listen {
 
                 this.right_card_animated_controller("1");
             }
+            spin_icon.click();
         });
 
         this.home_display_card();
@@ -748,6 +756,7 @@ class event_listen {
             } catch (err) {
                 console.log("No previous record.");
             }
+            spin_icon.click();
         });
 
         this.form_worker.init();
