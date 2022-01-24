@@ -409,11 +409,11 @@ class event_listen {
         });
 
         this.home_about.addEventListener("click", (e)=>{
-
+            this.show_popup("popup-about");
         });
 
         this.home_showcase.addEventListener("click", (e)=>{
-            
+            this.show_popup("popup-showcase");
         });
 
         this.close_popup.addEventListener("click", (e)=>{
