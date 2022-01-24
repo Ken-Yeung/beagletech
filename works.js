@@ -895,7 +895,7 @@ class form_formation {
                 try {
                     document.getElementById("btn-start").click();
                 } catch (error){}
-            },999 + 666); // Auto Delay start if record found
+            },777); // Auto Delay start if record found
 
             document.getElementById("ts").value = data.topic.subject;
             document.getElementById("impact").value = data.topic.impact;
