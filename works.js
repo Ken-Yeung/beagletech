@@ -456,11 +456,11 @@ class event_listen {
             ig.add("opc-0");
             ig.delay_add("noshow", 333);
 
-            tutor.remove("noshow");
-            tutor.delay_remove("opc-0", 33);
+            tutor.delay_remove("noshow", 333);
+            tutor.delay_remove("opc-0", 333);
 
-            show_case.remove("noshow");
-            show_case.delay_remove("opc-0", 33);
+            show_case.delay_remove("noshow", 333);
+            show_case.delay_remove("opc-0", 333);
         } else {
             tutor.add("opc-0");
             tutor.delay_add("noshow", 333);
@@ -468,11 +468,11 @@ class event_listen {
             show_case.add("opc-0");
             show_case.delay_add("noshow", 333);
 
-            fb.remove("noshow");
-            fb.delay_remove("opc-0", 33);
+            fb.delay_remove("noshow", 333);
+            fb.delay_remove("opc-0", 333);
 
-            ig.remove("noshow");
-            ig.delay_remove("opc-0", 33);
+            ig.delay_remove("noshow", 333);
+            ig.delay_remove("opc-0", 333);
         }
         
         return;
