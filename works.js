@@ -403,6 +403,12 @@ class event_listen {
     }
 
     home_display_card(){
+        let home_showcase = this.home_showcase;
+        let home_tutor = this.home_tutor;
+
+        document.getElementById("nav_showcase").addEventListener("click", (e)=>{home_showcase.click();});
+
+        document.getElementById("nav_tutor").addEventListener("click", (e)=>{ home_tutor.click(); });
         
         this.home_tutor.addEventListener("click", (e)=>{
             this.show_popup("popup-slider");
@@ -435,6 +441,40 @@ class event_listen {
             popup_control.delay_add("noshow", 345+333);
         });
 
+        return;
+    }
+
+    change_nav_minicon(statu){
+        let fb = new class_worker("nav_fb");
+        let ig = new class_worker("nav_ig");
+        let show_case = new class_worker("nav_showcase");
+        let tutor = new class_worker("nav_tutor");
+        if(statu){
+            fb.add("opc-0");
+            fb.delay_add("noshow", 333);
+
+            ig.add("opc-0");
+            ig.delay_add("noshow", 333);
+
+            tutor.remove("noshow");
+            tutor.delay_remove("opc-0", 33);
+
+            show_case.remove("noshow");
+            show_case.delay_remove("opc-0", 33);
+        } else {
+            tutor.add("opc-0");
+            tutor.delay_add("noshow", 333);
+
+            show_case.add("opc-0");
+            show_case.delay_add("noshow", 333);
+
+            fb.remove("noshow");
+            fb.delay_remove("opc-0", 33);
+
+            ig.remove("noshow");
+            ig.delay_remove("opc-0", 33);
+        }
+        
         return;
     }
 
@@ -525,6 +565,9 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
+
+                change_nav_minicon(false);
+
                 break;
 
             case "2":
@@ -536,6 +579,9 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
+
+                change_nav_minicon(true);
+
                 break;
 
             case "3":
@@ -548,6 +594,9 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
+
+                change_nav_minicon(true);
+
                 break;
 
             case "4":
@@ -561,6 +610,9 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][0] = false;
+
+                change_nav_minicon(true);
+
                 break;
 
             case "preview":
@@ -575,6 +627,9 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
+
+                change_nav_minicon(true);
+
                 break;
             
             case "payment":
@@ -589,6 +644,9 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
+
+                change_nav_minicon(true);
+
                 break;
             
             case "final":
@@ -604,6 +662,8 @@ class event_listen {
                 details.process[3][3] = 333;
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
+
+                change_nav_minicon(true);
                 
                 break;
 
@@ -615,6 +675,9 @@ class event_listen {
                 details.process[3][0] = false;
                 details.process[4][0] = false;
                 details.process[5][0] = false;
+
+                change_nav_minicon(false);
+
                 break;
 
             default:
