@@ -716,6 +716,8 @@ class event_listen {
         this.start.addEventListener("click", (e)=>{
             push_history("1", "main-tab-1");
 
+            this.change_nav_minicon(true);
+
             document.getElementById("main-tab-1").click();
             if (check_desktop_mode()){
 
