@@ -384,6 +384,7 @@ class event_listen {
     go_home(){
         this.home.addEventListener("click", (e)=>{
 
+            this.change_nav_minicon(false);
             push_history("home", "main-tab-home");
             document.getElementById("main-tab-home").click();
             if (check_desktop_mode()){
