@@ -566,7 +566,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                change_nav_minicon(false);
+                this.change_nav_minicon(false);
 
                 break;
 
@@ -580,7 +580,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
 
                 break;
 
@@ -595,7 +595,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
 
                 break;
 
@@ -611,7 +611,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][0] = false;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
 
                 break;
 
@@ -628,7 +628,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
 
                 break;
             
@@ -645,7 +645,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
 
                 break;
             
@@ -663,7 +663,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                change_nav_minicon(true);
+                this.change_nav_minicon(true);
                 
                 break;
 
@@ -676,7 +676,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                change_nav_minicon(false);
+                this.change_nav_minicon(false);
 
                 break;
 
