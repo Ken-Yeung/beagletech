@@ -466,10 +466,10 @@ class event_listen {
             ig.delay_add("noshow", 333);
 
             tutor.delay_remove("noshow", 333);
-            tutor.delay_remove("opc-0", 333);
+            tutor.delay_remove("opc-0", 333 + 33);
 
             show_case.delay_remove("noshow", 333);
-            show_case.delay_remove("opc-0", 333);
+            show_case.delay_remove("opc-0", 333 + 33);
         } else {
             tutor.add("opc-0");
             tutor.delay_add("noshow", 333);
@@ -478,10 +478,10 @@ class event_listen {
             show_case.delay_add("noshow", 333);
 
             fb.delay_remove("noshow", 333);
-            fb.delay_remove("opc-0", 333);
+            fb.delay_remove("opc-0", 333 + 33);
 
             ig.delay_remove("noshow", 333);
-            ig.delay_remove("opc-0", 333);
+            ig.delay_remove("opc-0", 333 + 33);
         }
         
         return;
