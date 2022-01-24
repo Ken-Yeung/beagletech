@@ -106,6 +106,8 @@ class event_listen {
         // this.form_5_sumbit = document.getElementById("submit-step5"); //Preview
 
         this.home_tutor = document.getElementById("main-home-tutorial");
+        this.home_about = document.getElementById("main-home-about");
+        this.home_showcase = document.getElementById("main-home-showcase");
 
         this.mini_box1_control = new class_worker("mini_box_1");
         this.mini_box2_control = new class_worker("mini_box_2");
@@ -404,6 +406,14 @@ class event_listen {
         
         this.home_tutor.addEventListener("click", (e)=>{
             this.show_popup("popup-slider");
+        });
+
+        this.home_about.addEventListener("click", (e)=>{
+
+        });
+
+        this.home_showcase.addEventListener("click", (e)=>{
+            
         });
 
         this.close_popup.addEventListener("click", (e)=>{
