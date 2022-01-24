@@ -269,6 +269,13 @@ class event_listen {
             let finished_perc = (prog - 100).toString();
             this.progress_bar.style.transform = `translateX(${finished_perc}%)`;
         }
+
+        if(id == "home"){
+            this.change_nav_minicon(false);
+        } else{
+            this.change_nav_minicon(true);
+        }
+
         document.getElementById(`main-tab-${id}`).click();
     }
 
@@ -277,6 +284,7 @@ class event_listen {
         const err_msg = "No such page here.";
         switch (page) {
             case "step1": // starting
+            
                 let subject = document.getElementById("ts");
                 let impact = document.getElementById("impact");
                 let object = document.getElementById("to");
@@ -566,7 +574,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                this.change_nav_minicon(false);
+                // this.change_nav_minicon(false);
 
                 break;
 
@@ -580,7 +588,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
 
                 break;
 
@@ -595,7 +603,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
 
                 break;
 
@@ -611,7 +619,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][0] = false;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
 
                 break;
 
@@ -628,7 +636,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
 
                 break;
             
@@ -645,7 +653,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
 
                 break;
             
@@ -663,7 +671,7 @@ class event_listen {
                 details.process[4][3] = 333;
                 details.process[5][3] = 333;
 
-                this.change_nav_minicon(true);
+                // this.change_nav_minicon(true);
                 
                 break;
 
@@ -676,7 +684,7 @@ class event_listen {
                 details.process[4][0] = false;
                 details.process[5][0] = false;
 
-                this.change_nav_minicon(false);
+                // this.change_nav_minicon(false);
 
                 break;
 
