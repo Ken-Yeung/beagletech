@@ -6,6 +6,10 @@
         const typpo = new URLSearchParams(window.location.search).get('type');
         if (typpo=="user"){
             user_btn.click();
+            console.log("True");
+        } else {
+            print(typpo);
+            print(window.location.search);
         }
 
         // console.log("Hello World.");
