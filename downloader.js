@@ -6,10 +6,10 @@
         const typpo = new URLSearchParams(window.location.search).get('type');
         if (typpo=="user"){
             
-            // setTimeout(()=>{
-            //     user_btn.click();
-            // }, 333);
-            user_btn.click();
+            setTimeout(()=>{
+                user_btn.click();
+            }, 333);
+            // user_btn.click();
 
             // console.log("True");
         } else {
