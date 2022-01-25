@@ -5,11 +5,16 @@
     try {
         const typpo = new URLSearchParams(window.location.search).get('type');
         if (typpo=="user"){
+            
+            // setTimeout(()=>{
+            //     user_btn.click();
+            // }, 333);
             user_btn.click();
-            console.log("True");
+
+            // console.log("True");
         } else {
-            print(typpo);
-            print(window.location.search);
+            // print(typpo);
+            // print(window.location.search);
         }
 
         // console.log("Hello World.");
