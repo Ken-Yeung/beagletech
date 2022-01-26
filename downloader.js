@@ -26,11 +26,33 @@ class workers{
     }
 }
 
+function proper(str) {
+    return str.replace(
+      /\w\S*/g,
+      function(txt) {
+        return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();
+      }
+    );
+}
+
 const update_time = async () => {
     let laber = new workers();
     let result = await laber.request("GET", "apk/time");
 
-    console.log(result);
+    let ids = [
+        "label_driver",
+        "label_user"
+    ]
+
+    for(let i = 0; i < ids.length; i++){
+        let id = ids[i];
+        let propered = proper(id.split("_")[1]);
+        let date = result[id.split("_")[1]];
+
+        document.getElementById(id).innerText = `${propered}\n最後更新：${date}`;
+    }
+
+    // console.log(result);
 }
 
 (function(){
