@@ -48,8 +48,9 @@ const update_time = async () => {
         let id = ids[i];
         let propered = proper(id.split("_")[1]);
         let date = result[id.split("_")[1]][0];
+        let time = result[id.split("_")[1]][1];
 
-        document.getElementById(id).innerText = `${propered}\n最後更新：${date}`;
+        document.getElementById(id).innerText = `${propered}\n最後更新：${date}\n${time}`;
     }
 
     // console.log(result);
