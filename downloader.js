@@ -1,6 +1,6 @@
 class workers{
     constructor(){
-        this.url = "https://ws.beagletech.org/";
+        this.url = "https://app.beagletech.org/";
     }
     
     async request(type, url, data = {}){
