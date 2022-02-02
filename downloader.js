@@ -1,3 +1,69 @@
+class class_worker{
+    constructor(id, debug=false){
+        let status = id.toString().charAt(0) == ".";
+        if(!status){
+            this.elem = document.getElementById(id.toString());
+        } else {
+            this.elem = document.querySelector(id,toString());
+        }
+        this.debug = debug;
+    }
+
+    add(class_name){
+        if(this.elem.classList.contains(class_name) == false){
+            this.elem.classList.add(class_name);
+            if(this.debug){
+                console.log(`Class: [${class_name}] added.`);
+            }
+        } else if(this.debug){
+            console.log(`Class: [${class_name}] existed.`);
+        }
+        return false;
+    }
+
+    remove(class_name){
+        if(this.elem.classList.contains(class_name)){
+            this.elem.classList.remove(class_name);
+            if(this.debug){
+                console.log(`Class: [${class_name}] removed.`);
+            }
+        } else if(this.debug){
+            console.log(`Class: [${class_name}] not found.`);
+        }
+        return false;
+    }
+
+    delay_add(class_name, ms){
+        var element = this.elem;
+        let debug = this.debug;
+        setTimeout(()=>{
+            if(element.classList.contains(class_name) == false){
+                element.classList.add(class_name);
+                if(debug){
+                    console.log(`Class: [${class_name}] added by delay after ${ms.toString()}ms.`);
+                }
+            } else if(debug){
+                console.log(`Class: [${class_name}] existed after ${ms.toString()}ms.`);
+            }
+        },ms);
+    }
+
+    delay_remove(class_name, ms){
+        var element = this.elem;
+        let debug = this.debug;
+        setTimeout(()=>{
+            if(element.classList.contains(class_name)){
+                element.classList.remove(class_name);
+                if(debug){
+                    console.log(`Class: [${class_name}] removed by delay after ${ms.toString()}ms.`);
+                }
+            } else if(debug){
+                console.log(`Class: [${class_name}] not found after ${ms.toString()}ms.`);
+            }
+        },ms);
+    }
+}
+
 class workers{
     constructor(){
         this.url = "https://app.beagletech.org/";
@@ -56,6 +122,12 @@ const update_time = async () => {
     // console.log(result);
 }
 
+var shown = (id)=>{
+    let table = new class_worker(id);
+    table.remove("noshow");
+    table.delay_remove("opc-0", 99);
+};
+
 (function(){
     const user_btn = document.getElementById("user_btn");
     // const url = "https://ws.beagletech.org/";
@@ -65,9 +137,13 @@ const update_time = async () => {
     
     try {
         const typpo = new URLSearchParams(window.location.search).get('type');
-        if (typpo=="user"){
+        if (typpo!="" && typpo != null){
             setTimeout(()=>{
-                user_btn.click();
+                if (typpo == "user"){
+                    user_btn.click();
+                }
+                shown(typpo);
+                // user_btn.click();
             }, 333);
         }
     } catch(e){}
