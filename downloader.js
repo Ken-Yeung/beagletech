@@ -139,9 +139,9 @@ var shown = (id)=>{
         const typpo = new URLSearchParams(window.location.search).get('type');
         if (typpo!="" && typpo != null){
             setTimeout(()=>{
-                if (typpo == "user"){
-                    user_btn.click();
-                }
+                // if (typpo == "user"){
+                //     user_btn.click();
+                // }
                 shown(typpo);
                 // user_btn.click();
             }, 333);
