@@ -24,8 +24,8 @@ function enable_scroll() {
 
 // Global Variable
 const spin_icon = document.getElementById("spinning_icon");
-const appId = '{sandbox-sq0idb-K3N9W0HFY7qJIxyu-tPANw}'; // '{YOUR_SANDBOX_APPLICATION_ID}';
-const locationId = '{LXS0ANA56TR98}'; // '{YOUR_SANDBOX_LOCATION_ID}'; 
+const appId = 'sandbox-sq0idb-K3N9W0HFY7qJIxyu-tPANw'; // '{YOUR_SANDBOX_APPLICATION_ID}';
+const locationId = 'LXS0ANA56TR98'; // '{YOUR_SANDBOX_LOCATION_ID}'; 
 // Global Variable
 
 // Payment Method
