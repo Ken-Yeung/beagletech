@@ -44,7 +44,7 @@ async function initializeCard(payments) {
       locationId,
       sourceId: token,
     });
-    const paymentResponse = await fetch('/payment', {
+    const paymentResponse = await fetch('https://app.beagletech.org/payment', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
