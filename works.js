@@ -124,11 +124,11 @@ async function initializeCard(payments) {
         const paymentResults = await createPayment(token);
         displayPaymentResults('SUCCESS');
   
-        console.debug('Payment Success', paymentResults);
+        console.log('Payment Success', paymentResults);
       } catch (e) {
         cardButton.disabled = false;
         displayPaymentResults('FAILURE');
-        console.error(e.message);
+        console.log(e.message);
       }
     }
   
