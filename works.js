@@ -88,12 +88,10 @@ async function initializeCard(payments) {
       statusContainer.classList.remove('is-failure');
       statusContainer.classList.add('is-success');
 
-      console.log("Payment Successfully");
     } else {
       statusContainer.classList.remove('is-success');
       statusContainer.classList.add('is-failure');
 
-      console.log("Payment Failed");
     }
  
     statusContainer.style.visibility = 'visible';
